@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
+import { TUnit } from '../../../channel';
 import { NodeList } from '../NodeList';
-import { Search } from '../Search';
+import { NodeOwner } from '../NodeOwner';
 
 import { HomeBrowserContainer } from './styled';
 
 export const Home = () => {
+  const [unit, setUnit] = useState<TUnit>('BTC');
   return (
     <>
       <HomeBrowserContainer>
-        <Search />
-        <h2>Node Info</h2>
+        <NodeOwner
+          nodeOwner="DiamondHands"
+          pk="035b1ff29e8db1ba8f2a4f4f95db239b54069cb949b8cde329418e2a83da4f1b30"
+          channels={338}
+          capacity={'15.83473921'}
+          unit={unit}
+        />
         <NodeList />
       </HomeBrowserContainer>
     </>

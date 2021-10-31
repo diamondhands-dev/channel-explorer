@@ -1,3 +1,5 @@
+export type TUnit = 'BTC' | 'sats';
+
 export interface IChannel {
   alias: string;
   capacity: number;

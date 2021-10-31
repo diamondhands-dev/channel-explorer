@@ -7,6 +7,7 @@ import { Globals } from '../components/Globals';
 import { languages } from '../modules/i18n';
 import { useStore } from '../modules/store';
 import '../modules/styles/globals.css'; // eslint-disable-line
+import 'react-toastify/dist/ReactToastify.css'; // eslint-disable-line
 
 const DEFAULT_LOCALE = 'en';
 

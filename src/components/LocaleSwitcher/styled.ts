@@ -1,6 +1,7 @@
 import { Dropdown } from 'comet-ui-kit';
-import { rem } from 'polished';
 import styled from 'styled-components';
+
+import { theme } from '../../modules/styles';
 
 export const Container = styled.div`
   /* Avoid Bug: can't transparent color after theme change */
@@ -9,7 +10,8 @@ export const Container = styled.div`
   }
 `;
 
-export const CustomDropDown = styled(Dropdown)`
-  padding-left: ${({ theme }) => rem(theme.comet.size.box)};
-  padding-right: ${({ theme }) => rem(theme.comet.size.box)};
+export const CustomDropDown = styled(Dropdown)``;
+
+export const TextChosenLanguage = styled.span`
+  color: ${theme.colors.white};
 `;

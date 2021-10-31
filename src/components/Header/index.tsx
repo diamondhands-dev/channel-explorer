@@ -1,28 +1,34 @@
 import { useRouter } from 'next/router';
 import React, { useCallback } from 'react';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
-import { useThemeSettings } from '../../modules/store/settings';
 import { LocaleSwitcher } from '../LocaleSwitcher';
-import { ThemeSwitcher } from '../ThemeSwitcher';
 
-import { HeaderContainer, Right } from './styles';
+import { HeaderContainer, Left, Right, Title, TitleSmall } from './styles';
 
 export const Header = () => {
   const { push, asPath, locales } = useRouter();
   const { locale } = useIntl();
-  const [theme, setTheme] = useThemeSettings();
   const changeLocale = useCallback(
     (locale: string) => push(asPath, null, { locale }),
     [push, asPath],
   );
 
-  const left = <></>;
+  const left = (
+    <Left>
+      <TitleSmall>
+        <FormattedMessage id="header.bitcoin-lightning" />
+      </TitleSmall>
+      <br />
+      <Title>
+        <FormattedMessage id="header.channel-explorer" />
+      </Title>
+    </Left>
+  );
 
   const right = (
     <>
       <Right>
-        <ThemeSwitcher theme={theme as any} onChange={setTheme} />
         <LocaleSwitcher locale={locale} locales={locales} onChange={changeLocale} />
       </Right>
     </>

@@ -1,0 +1,1 @@
+export { emphasizeAmount } from './unit';

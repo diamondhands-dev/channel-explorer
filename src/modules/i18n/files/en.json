@@ -1,3 +1,9 @@
 {
-  "test": "Test"
+  "header.bitcoin-lightning": "Bitcoin Lightning",
+  "header.channel-explorer": "Channel Explorer",
+  "toast.copied": "Copied public key!",
+  "node": "Node",
+  "public-key": "Public Key:",
+  "channels": "Channels",
+  "capacity": "Capacity"
 }

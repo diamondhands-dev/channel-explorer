@@ -1,6 +1,7 @@
-import { CometThemeProvider, CometToastContainer, COMET_GLOBAL_FONT_HREF } from 'comet-ui-kit';
+import { CometThemeProvider, COMET_GLOBAL_FONT_HREF } from 'comet-ui-kit';
 import Head from 'next/head';
 import React from 'react';
+import { ToastContainer, Slide } from 'react-toastify';
 
 import { GlobalStyle } from '../../modules/styles';
 import { Header } from '../Header';
@@ -16,10 +17,9 @@ export const Globals = ({ children }: { children: React.ReactNode }) => {
         <link rel="stylesheet" href={COMET_GLOBAL_FONT_HREF} />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        {/* @ts-ignore */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Rajdhani&family=Raleway&display=swap"
           rel="stylesheet"
         />
 
@@ -30,10 +30,21 @@ export const Globals = ({ children }: { children: React.ReactNode }) => {
           }
         />
       </Head>
-      <GlobalStyle />
       <Header />
       <GlobalContainer>{children}</GlobalContainer>
-      <CometToastContainer />
+      <GlobalStyle />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        transition={Slide}
+        draggable
+        pauseOnHover
+      />
     </CometThemeProvider>
   );
 };

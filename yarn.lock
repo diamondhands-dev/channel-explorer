@@ -2435,11 +2435,6 @@ classnames@2.2.6:
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
 
-classnames@^2.2.6:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.1.tgz#dfcfa3891e306ec1dad105d0e88f4417b8535e8e"
-  integrity sha512-OlQdbZ7gLfGarSqxesMesDa5uz7KFbID8Kpq/SxIoNGDqY8lSYs0D+hhtBXhcdB3rcbXArFr7vlHheLk1voeNA==
-
 cliui@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-6.0.0.tgz#511d702c0c4e41ca156d7d0e96021f23e13225b1"
@@ -6954,11 +6949,6 @@ react-dom@^17.0.2:
     object-assign "^4.1.1"
     scheduler "^0.20.2"
 
-react-github-corner@^2.5.0:
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/react-github-corner/-/react-github-corner-2.5.0.tgz#e350d0c69f69c075bc0f1d2a6f1df6ee91da31f2"
-  integrity sha512-ofds9l6n61LJc6ML+jSE6W9ZSQvATcMR9evnHPXua1oDYj289HKODnVqFUB/g2a4ieBjDHw416iHP3MjqnU76Q==
-
 react-intl@^5.8.8:
   version "5.20.12"
   resolved "https://registry.yarnpkg.com/react-intl/-/react-intl-5.20.12.tgz#1a4969d15c381378cae35912fa2ec7010e27b4f7"
@@ -7055,6 +7045,13 @@ react-toastify@^6.2.0:
     clsx "^1.1.1"
     prop-types "^15.7.2"
     react-transition-group "^4.4.1"
+
+react-toastify@^8.0.3:
+  version "8.0.3"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-8.0.3.tgz#7fbf65f69ec357aab8dd03c1496f9177aa92409a"
+  integrity sha512-rv3koC7f9lKKSkdpYgo/TGzgWlrB/aaiUInF1DyV7BpiM4kyTs+uhu6/r8XDMtBY2FOIHK+FlK3Iv7OzpA/tCA==
+  dependencies:
+    clsx "^1.1.1"
 
 react-toggle-dark-mode@^1.0.4:
   version "1.0.4"
@@ -7326,13 +7323,6 @@ rlp@^2.2.4:
   integrity sha512-HAfAmL6SDYNWPUOJNrM500x4Thn4PZsEy5pijPh40U9WfNk0z15hUYzO9xVIMAdIHdFtD8CBDHd75Td1g36Mjg==
   dependencies:
     bn.js "^4.11.1"
-
-rodal@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.yarnpkg.com/rodal/-/rodal-1.8.1.tgz#b34b97f00fb4e957184083f84c0e49ace33b3160"
-  integrity sha512-3BpwZrLpaWSDHu8Atzz/S83MkpqpnXL9uGjNPZy1N6V7p4eWWsBSP8er5t+1xV+fZmbGEjLTNo01pUzYHqc7vg==
-  dependencies:
-    classnames "^2.2.6"
 
 rsvp@^4.8.4:
   version "4.8.5"
