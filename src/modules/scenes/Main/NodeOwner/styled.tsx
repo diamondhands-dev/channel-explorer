@@ -27,6 +27,8 @@ export const Box = styled.div`
 export const RowTag = styled.div`
   position: relative;
   height: ${rem(34)};
+  display: flex;
+  justify-content: space-between;
 `;
 
 export const TagNode = styled.div`

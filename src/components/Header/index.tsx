@@ -1,10 +1,12 @@
 import { useRouter } from 'next/router';
 import React, { useCallback } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+import Image from 'next/image';
 
+import logo from '../../../public/icons/dh-logo.svg';
 import { LocaleSwitcher } from '../LocaleSwitcher';
 
-import { HeaderContainer, Left, Right, Title, TitleSmall } from './styles';
+import { HeaderContainer, Left, Right, Title, TitleSmall, ProvideBy, Logo, Atag } from './styles';
 
 export const Header = () => {
   const { push, asPath, locales } = useRouter();
@@ -16,13 +18,22 @@ export const Header = () => {
 
   const left = (
     <Left>
-      <TitleSmall>
-        <FormattedMessage id="header.bitcoin-lightning" />
-      </TitleSmall>
-      <br />
-      <Title>
-        <FormattedMessage id="header.channel-explorer" />
-      </Title>
+      <div>
+        <TitleSmall>
+          <FormattedMessage id="header.bitcoin-lightning" />
+        </TitleSmall>
+        <br />
+        <Title>
+          <FormattedMessage id="header.channel-explorer" />
+        </Title>
+      </div>
+      <ProvideBy>
+        <span>by</span>
+        <Atag href="">Diamond Hands</Atag>
+        <Logo>
+          <Image src={logo} alt="logo" />
+        </Logo>
+      </ProvideBy>
     </Left>
   );
 

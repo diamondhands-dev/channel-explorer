@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 
 import triangle from '../../../../../public/icons/triangle-purple.svg';
 import { TUnit } from '../../../channel';
+import { UnitSwitcher } from '../../../../components/UnitSwithcer';
 
 import {
   NodeOwnerContainer,
@@ -55,7 +56,10 @@ export const NodeOwner = ({
 
   return (
     <NodeOwnerContainer>
-      <RowTag>{tag}</RowTag>
+      <RowTag>
+        <div>{tag}</div>
+        <UnitSwitcher />
+      </RowTag>
       <Box>
         <NodeName>{nodeOwner}</NodeName>
         <RowPk>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 import { TUnit } from '../../../channel';
-import { NodeList } from '../NodeList';
+import { ChannelList } from '../ChannelList';
 import { NodeOwner } from '../NodeOwner';
 
 import { HomeBrowserContainer } from './styled';
@@ -18,7 +18,7 @@ export const Home = () => {
           capacity={'15.83473921'}
           unit={unit}
         />
-        <NodeList />
+        <ChannelList />
       </HomeBrowserContainer>
     </>
   );
