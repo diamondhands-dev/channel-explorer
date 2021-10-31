@@ -6,7 +6,7 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { Globals } from '../components/Globals';
 import { languages } from '../modules/i18n';
 import { useStore } from '../modules/store';
-import '../../styles/globals.css'; // eslint-disable-line
+import '../modules/styles/globals.css'; // eslint-disable-line
 
 const DEFAULT_LOCALE = 'en';
 
