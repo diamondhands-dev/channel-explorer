@@ -1,0 +1,5 @@
+/.next
+/**/*.md
+/**/*.yaml
+/**/*.js
+/node_modules
