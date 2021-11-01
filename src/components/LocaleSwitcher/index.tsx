@@ -23,15 +23,15 @@ export const LocaleSwitcher = ({ locale, locales: localesParam, onChange }: Prop
     <Container>
       <CustomDropDown
         target={
-          <Dropdown.DefaultTarget color={theme.colors.orange} size="city">
+          <Dropdown.DefaultTarget color={theme.styles.orange} size="city">
             <TextChosenLanguage>{getLanguageName(locale)}</TextChosenLanguage>
           </Dropdown.DefaultTarget>
         }
       >
         {locales.map((it) => (
           <Dropdown.Item
-            color={theme.colors.orange}
-            selectedColor={theme.colors.orange}
+            color={theme.styles.orange}
+            selectedColor={theme.styles.orange}
             selected={locale === it}
             onClick={() => onChange?.(it)}
             key={it}

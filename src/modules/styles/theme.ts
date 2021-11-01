@@ -12,14 +12,19 @@ const colors = {
   darkGray: '#8A8A8A',
   rat: '#D3D3D3',
   teal: '#BFFF07',
+  orange: '#FF7A00',
+  purple: '#6300FF',
   placeholderOrange: '#ffddb0',
-  orange: '#FF8A16',
+  placeholderBar:
+    'linear-gradient(270deg, rgba(154, 74, 255, 0.15) 0%, rgba(247, 148, 19, 0.15) 97.48%)',
 };
 
 const styles = {
   boxShadow: '0px 0px 6px rgba(0, 0, 0, 0.25)',
+  boxShadowBar: 'inset 0px 1px 3px rgba(0, 0, 0, 0.62)',
   borderGray: '1px solid #d2d2d2',
   borderDarkGray: '1px solid #d7d7d7',
+  orange: '#FF8A16',
 };
 
 export interface StyleClosetTheme {

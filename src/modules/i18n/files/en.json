@@ -7,5 +7,9 @@
   "channels": "Channels",
   "capacity": "Capacity",
   "placeholder.search": "Search for Channel Names or Public Keys",
-  "channel-id": "Channel ID :"
+  "channel-id": "Channel ID :",
+  "remote": "REMOTE",
+  "fee": "Fee",
+  "total-capacity": "Total Capacity :",
+  "local": "Local"
 }

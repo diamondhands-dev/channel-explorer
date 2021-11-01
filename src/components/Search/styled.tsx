@@ -29,9 +29,9 @@ export const SearchInput = styled(TextInput)`
   }
 
   .hnDFEq {
-    border-color: ${theme.colors.orange};
+    border-color: ${theme.styles.orange};
     .fzAUAg {
-      color: ${theme.colors.orange};
+      color: ${theme.styles.orange};
     }
   }
 
@@ -49,9 +49,9 @@ export const SearchInput = styled(TextInput)`
   }
 
   .ebaotP {
-    border-color: ${theme.colors.orange};
+    border-color: ${theme.styles.orange};
     .sc-dWddBi {
-      color: ${theme.colors.orange};
+      color: ${theme.styles.orange};
     }
   }
 `;

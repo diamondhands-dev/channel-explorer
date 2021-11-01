@@ -18,7 +18,6 @@ import {
   NodeName,
   RowPk,
   IconCopy,
-  BoxData,
   RowData,
   TitleData,
   ValueData,
