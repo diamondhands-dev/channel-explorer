@@ -17,6 +17,9 @@ export const NodeOwnerContainer = styled.div`
 
   /* @media (min-width: ${rem(media.lg)}) {
   } */
+  .count-up {
+    font-family: 'Rajdhani';
+  }
 `;
 
 export const Box = styled.div`
@@ -77,7 +80,9 @@ export const RowData = styled.div`
 
 export const BoxData = styled.div`
   padding: ${rem(30)} ${rem(56)};
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-top: ${rem(2)} solid #d36bf8;
   border-bottom: ${rem(2)} solid #965bf4;
   -webkit-box-sizing: border-box;
@@ -92,6 +97,14 @@ export const BoxData = styled.div`
     linear-gradient(to bottom, #d36bf8 3.68%, #965bf4 100%);
 `;
 
+export const BoxCapacity = styled(BoxData)`
+  width: ${rem(350)};
+`;
+
+export const BoxChannel = styled(BoxData)`
+  width: ${rem(190)};
+`;
+
 export const TitleData = styled.div`
   font-size: ${rem(20)};
   font-weight: 500;
@@ -101,7 +114,6 @@ export const TitleData = styled.div`
 export const ValueData = styled.div`
   font-size: ${rem(36)};
   font-weight: 600;
-  font-family: 'Rajdhani';
 `;
 
 export const ValueDataSmall = styled(ValueData)`
@@ -109,6 +121,7 @@ export const ValueDataSmall = styled(ValueData)`
   font-weight: 600;
   align-self: flex-end;
   margin-bottom: ${rem(4)};
+  transition: all 1s ease 1s;
 `;
 
 export const RowAmount = styled.div`

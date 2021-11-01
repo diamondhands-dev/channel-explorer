@@ -5,6 +5,7 @@ const colors = {
   tagNode: 'linear-gradient(270deg, #D36BF8 3.68%, #965BF4 100%)',
   tagChannel: 'linear-gradient(270deg, #FFB802 3.68%, #FF8717 100%)',
   unitSats: 'linear-gradient(180deg, #828282 34.9%, #434343 100%)',
+  link: '#2FB6F0',
   black: '#000000',
   white: '#ffffff',
   gray: '#ECECEC',
@@ -17,7 +18,8 @@ const colors = {
 
 const styles = {
   boxShadow: '0px 0px 6px rgba(0, 0, 0, 0.25)',
-  borderGray: ' 1px solid #d2d2d2',
+  borderGray: '1px solid #d2d2d2',
+  borderDarkGray: '1px solid #d7d7d7',
 };
 
 export interface StyleClosetTheme {

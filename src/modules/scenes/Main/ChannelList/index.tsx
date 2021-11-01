@@ -4,7 +4,9 @@ import { FormattedMessage } from 'react-intl';
 
 import triangle from '../../../../../public/icons/triangle-orange.svg';
 import { Search } from '../../../../components/Search';
+import { TUnit } from '../../../channel';
 import { useGetChannelData } from '../../../hooks';
+import { Channel } from '../Channel';
 
 import {
   ChannelHead,
@@ -15,7 +17,7 @@ import {
   Triangle,
 } from './styled';
 
-export const ChannelList = () => {
+export const ChannelList = ({ unit }: { unit: TUnit }) => {
   const { channels, isLoading } = useGetChannelData();
   const [search, setSearch] = useState('');
   const tag = (
@@ -37,6 +39,7 @@ export const ChannelList = () => {
           </ColumnSearch>
         </RowTag>
       </ChannelHead>
+      <Channel unit={unit} />
     </ChannelListContainer>
   );
 };

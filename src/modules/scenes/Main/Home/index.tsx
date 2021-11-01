@@ -18,7 +18,7 @@ export const Home = () => {
           capacity={'15.83473921'}
           unit={unit}
         />
-        <ChannelList />
+        <ChannelList unit={unit} />
       </HomeBrowserContainer>
     </>
   );

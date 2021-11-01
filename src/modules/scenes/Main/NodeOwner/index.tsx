@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 import Image from 'next/image';
 import useCopy from '@react-hook/copy';
 import { toast } from 'react-toastify';
+import CountUp from 'react-countup';
 
 import triangle from '../../../../../public/icons/triangle-purple.svg';
 import { TUnit } from '../../../channel';
@@ -23,6 +24,8 @@ import {
   ValueData,
   ValueDataSmall,
   RowAmount,
+  BoxCapacity,
+  BoxChannel,
 } from './styled';
 
 export const NodeOwner = ({
@@ -39,6 +42,7 @@ export const NodeOwner = ({
   unit: TUnit;
 }) => {
   const { copy } = useCopy(pk);
+  const [isShowUnit, setIsShowUnit] = useState<Boolean>(false);
 
   const copyPk = () => {
     copy();
@@ -72,22 +76,38 @@ export const NodeOwner = ({
           </div>
         </RowPk>
         <RowData>
-          <BoxData>
+          <BoxChannel>
             <TitleData>
               <FormattedMessage id="channels" />
             </TitleData>
-            <ValueData>{channels}</ValueData>
-          </BoxData>
+            <ValueData className="animate__animated  animate__fadeInLeft">
+              <CountUp delay={1} end={channels} duration={2} decimal="." className="count-up" />
+            </ValueData>
+          </BoxChannel>
 
-          <BoxData>
+          <BoxCapacity>
             <TitleData>
               <FormattedMessage id="capacity" />
             </TitleData>
-            <RowAmount>
-              <ValueData>{capacity}</ValueData>
-              <ValueDataSmall>{unit}</ValueDataSmall>
+            <RowAmount className="animate__animated  animate__fadeInLeft">
+              <ValueData>
+                <CountUp
+                  delay={1}
+                  end={Number(capacity)}
+                  duration={2}
+                  decimals={8}
+                  decimal="."
+                  className="count-up"
+                  onEnd={() => setIsShowUnit(true)}
+                />
+              </ValueData>
+              {isShowUnit && (
+                <ValueDataSmall className="animate__animated  animate__fadeInLeft">
+                  {unit}
+                </ValueDataSmall>
+              )}
             </RowAmount>
-          </BoxData>
+          </BoxCapacity>
         </RowData>
       </Box>
     </NodeOwnerContainer>

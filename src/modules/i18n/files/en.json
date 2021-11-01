@@ -3,8 +3,9 @@
   "header.channel-explorer": "Channel Explorer",
   "toast.copied": "Copied public key!",
   "node": "Node",
-  "public-key": "Public Key:",
+  "public-key": "Public Key :",
   "channels": "Channels",
   "capacity": "Capacity",
-  "placeholder.search": "Search for Channel Names or Public Keys"
+  "placeholder.search": "Search for Channel Names or Public Keys",
+  "channel-id": "Channel ID :"
 }
