@@ -96,6 +96,7 @@ export const NodeOwner = ({
                   duration={2}
                   decimals={unit === 'BTC' ? 8 : 0}
                   decimal="."
+                  separator=","
                   className="count-up"
                   onEnd={() => setIsShowUnit(true)}
                 />
