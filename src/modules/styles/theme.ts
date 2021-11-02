@@ -5,6 +5,8 @@ const colors = {
   tagNode: 'linear-gradient(270deg, #D36BF8 3.68%, #965BF4 100%)',
   tagChannel: 'linear-gradient(270deg, #FFB802 3.68%, #FF8717 100%)',
   unitSats: 'linear-gradient(180deg, #828282 34.9%, #434343 100%)',
+  buttonCapacityBg: 'linear-gradient(180deg, #d171ff 0%, #7000ff 89.25%)',
+  buttonCapacityBgHover: 'linear-gradient(180deg, #7000FF 0%, #D171FF 105.13%)',
   link: '#2FB6F0',
   black: '#000000',
   white: '#ffffff',
@@ -22,6 +24,8 @@ const colors = {
 const styles = {
   boxShadow: '0px 0px 6px rgba(0, 0, 0, 0.25)',
   boxShadowBar: 'inset 0px 1px 3px rgba(0, 0, 0, 0.62)',
+  boxShadowButtonCapacity: '0px 2px 2px #3b0989',
+  boxShadowButtonCapacityHover: 'inset 0px 2px 0px rgba(59, 9, 137, 0.39)',
   borderGray: '1px solid #d2d2d2',
   borderDarkGray: '1px solid #d7d7d7',
   orange: '#FF8A16',

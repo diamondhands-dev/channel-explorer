@@ -11,5 +11,8 @@
   "remote": "REMOTE",
   "fee": "Fee",
   "total-capacity": "Total Capacity :",
-  "local": "Local"
+  "local": "Local",
+  "max-receive": "[Max Receive]",
+  "max-send": "[Max Send]",
+  "view-button": "⚡️ View Capacity Balance"
 }

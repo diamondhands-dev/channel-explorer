@@ -34,15 +34,3 @@ export const ButtonScale = styled(Button)`
     transform: scale(1.05);
   }
 `;
-
-export const AddressLinkP = styled.p`
-  color: #3799da;
-  font-weight: bold;
-  font-size: ${({ theme }) => rem(theme.comet.size.room)};
-  margin: 0;
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  cursor: pointer;
-`;

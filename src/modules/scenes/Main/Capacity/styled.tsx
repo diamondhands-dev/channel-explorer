@@ -84,11 +84,64 @@ export const BarBond = styled.div<{ widthPercentage: number }>`
 export const Bar = styled.div<{ isPaid: Boolean }>`
   height: 100%;
   position: relative;
-  margin-right: ${rem(12)};
-  margin-bottom: ${rem(28)};
+  margin-bottom: ${rem(4)};
   background: ${({ isPaid }) => (isPaid ? theme.colors.purple : theme.colors.placeholderBar)};
   border-radius: ${rem(32)};
   display: flex;
   align-items: center;
   box-shadow: ${theme.styles.boxShadowBar};
+`;
+
+export const Guide = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+`;
+
+export const ButtonView = styled.div`
+  font-size: ${rem(18)};
+  background: ${theme.colors.buttonCapacityBg};
+  box-shadow: ${theme.styles.boxShadowButtonCapacity};
+  border-radius: ${rem(8)};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: ${rem(8)} ${rem(12)};
+  color: ${theme.colors.white};
+  font-weight: bold;
+  cursor: pointer;
+  :hover {
+    background: ${theme.colors.buttonCapacityBgHover};
+    box-shadow: ${theme.styles.boxShadowButtonCapacityHover};
+  }
+`;
+
+export const MaxReceive = styled.div`
+  color: ${theme.colors.orange};
+`;
+
+export const MaxSend = styled.div`
+  color: ${theme.colors.purple};
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`;
+
+export const MaxGuide = styled.div`
+  font-size: ${rem(12)};
+  font-weight: 500;
+  display: flex;
+  align-items: flex-end;
+  column-gap: ${rem(4)};
+`;
+
+export const CapacityValue = styled.div`
+  display: flex;
+  align-items: center;
+  column-gap: ${rem(4)};
+`;
+
+export const TextValueAmount = styled.div`
+  font-size: ${rem(24)};
+  font-weight: 600;
 `;
