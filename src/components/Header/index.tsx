@@ -29,7 +29,9 @@ export const Header = () => {
       </div>
       <ProvideBy>
         <span>by</span>
-        <Atag href="">Diamond Hands</Atag>
+        <Atag href="https://www.diamondhandsnode.com/en" rel="noopener noreferrer" target="_blank">
+          Diamond Hands
+        </Atag>
         <Logo>
           <Image src={logo} alt="logo" />
         </Logo>

@@ -19,6 +19,7 @@ export const Channel = ({ unit }: { unit: TUnit }) => {
   const channelName = 'CoinPayments';
   const channelId = '745420505213435904';
   const pk = '03afa7a8196dbca763ee6f9a34b634a7adc03f154e5d6979fe654db5606b5fb2b1';
+  const url = `https://amboss.space/node/${pk}`;
 
   return (
     <ChannelContainer>
@@ -30,7 +31,7 @@ export const Channel = ({ unit }: { unit: TUnit }) => {
           </Title>
           <Value>
             {/* Memo: link to Ambos */}
-            <Atag href="">
+            <Atag href={url} rel="noopener noreferrer" target="_blank">
               <span>{channelId}</span>
               <IconLink />
             </Atag>

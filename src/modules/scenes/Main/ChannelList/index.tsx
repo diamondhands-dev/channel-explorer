@@ -40,6 +40,7 @@ export const ChannelList = ({ unit }: { unit: TUnit }) => {
         </RowTag>
       </ChannelHead>
       <Channel unit={unit} />
+      <Channel unit={unit} />
     </ChannelListContainer>
   );
 };

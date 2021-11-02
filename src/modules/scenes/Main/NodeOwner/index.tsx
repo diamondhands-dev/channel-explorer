@@ -45,7 +45,7 @@ export const NodeOwner = ({
 
   const copyPk = () => {
     copy();
-    toast.success(<FormattedMessage id="toast.copied" />);
+    toast.success(<FormattedMessage id="toast.copied.pk" />);
   };
 
   const tag = (

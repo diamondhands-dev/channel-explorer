@@ -1,6 +1,7 @@
 const colors = {
   bg: '#E3DDEB',
   headerBg: '#202020',
+  paymentBg: '#EFEFEF',
   logo: 'linear-gradient(270deg, #9a4aff 0%, #f79413 97.48%)',
   tagNode: 'linear-gradient(270deg, #D36BF8 3.68%, #965BF4 100%)',
   tagChannel: 'linear-gradient(270deg, #FFB802 3.68%, #FF8717 100%)',

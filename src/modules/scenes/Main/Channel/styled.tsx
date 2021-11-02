@@ -11,6 +11,7 @@ export const ChannelContainer = styled.div`
   padding: ${rem(32)} ${rem(28)};
   width: 100%;
   max-width: ${rem(1360)};
+  border-bottom: ${theme.styles.borderGray};
 `;
 
 export const ChannelInfo = styled.div`

@@ -1,12 +1,13 @@
 {
   "header.bitcoin-lightning": "Bitcoin Lightning",
   "header.channel-explorer": "Channel Explorer",
-  "toast.copied": "Copied public key!",
+  "toast.copied.pk": "Copied public key!",
+  "toast.copied.invoice": "Copied invoice!",
   "node": "Node",
   "public-key": "Public Key :",
   "channels": "Channels",
   "capacity": "Capacity",
-  "placeholder.search": "Search for Channel Names or Public Keys",
+  "placeholder.search": "Search for Channel Name or Public Key",
   "channel-id": "Channel ID :",
   "remote": "REMOTE",
   "fee": "Fee",
@@ -14,5 +15,7 @@
   "local": "Local",
   "max-receive": "[Max Receive]",
   "max-send": "[Max Send]",
-  "view-button": "⚡️ View Capacity Balance"
+  "view-button": "⚡️ View Capacity Balance",
+  "amount-to-pay": "Amount to pay :",
+  "invoice": "Invoice"
 }

@@ -9,6 +9,7 @@ import { useStore } from '../modules/store';
 import '../modules/styles/globals.css'; // eslint-disable-line
 import 'react-toastify/dist/ReactToastify.css'; // eslint-disable-line
 import 'animate.css'; // eslint-disable-line
+import { SEO } from '../modules/seo';
 
 const DEFAULT_LOCALE = 'en';
 
@@ -31,6 +32,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <SEO />
       <IntlProvider messages={messages} locale={locale} defaultLocale={DEFAULT_LOCALE}>
         <ReduxProvider store={store}>
           <Globals>
