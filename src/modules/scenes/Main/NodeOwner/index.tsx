@@ -94,7 +94,7 @@ export const NodeOwner = ({
                   delay={1}
                   end={Number(capacity)}
                   duration={2}
-                  decimals={8}
+                  decimals={unit === 'BTC' ? 8 : 0}
                   decimal="."
                   className="count-up"
                   onEnd={() => setIsShowUnit(true)}

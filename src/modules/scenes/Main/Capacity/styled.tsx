@@ -45,7 +45,7 @@ export const FeeRemote = styled.div`
   background: ${theme.colors.orange};
   color: ${theme.colors.white};
   text-decoration: underline;
-  padding: ${rem(4)} ${rem(8)};
+  padding: ${rem(2)} ${rem(8)};
   font-family: 'Rajdhani';
   font-weight: 600;
   font-size: ${rem(14)};
@@ -220,4 +220,28 @@ export const ValueInvoice = styled.div`
 export const RowPayment = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+export const ToolTipBase = styled.div`
+  border-radius: ${rem(4)};
+  padding: ${rem(4)} ${rem(8)};
+`;
+
+export const ToolTipRemote = styled(ToolTipBase)`
+  /* background: #fff7e3; */
+  /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25); */
+`;
+
+export const RowToolTip = styled.div`
+  display: flex;
+  column-gap: ${rem(6)};
+  font-weight: 500;
+  font-size: ${rem(14)};
+  align-items: center;
+`;
+
+export const TooltipAmount = styled.div`
+  font-family: 'Rajdhani';
+  font-weight: 600;
+  font-size: ${rem(18)};
 `;

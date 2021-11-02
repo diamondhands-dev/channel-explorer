@@ -7,7 +7,7 @@ import { NodeOwner } from '../NodeOwner';
 import { HomeBrowserContainer } from './styled';
 
 export const Home = () => {
-  const [unit, setUnit] = useState<TUnit>('BTC');
+  const [unit, setUnit] = useState<TUnit>('sats');
   return (
     <>
       <HomeBrowserContainer>
@@ -15,7 +15,7 @@ export const Home = () => {
           nodeOwner="DiamondHands"
           pk="035b1ff29e8db1ba8f2a4f4f95db239b54069cb949b8cde329418e2a83da4f1b30"
           channels={338}
-          capacity={'15.83473921'}
+          capacity={'1583473921'}
           unit={unit}
         />
         <ChannelList unit={unit} />

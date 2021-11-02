@@ -5,6 +5,7 @@ import { QRCode } from 'react-qrcode-logo';
 import useCopy from '@react-hook/copy';
 import { toast } from 'react-toastify';
 import Collapse from 'react-css-collapse';
+import { Tooltip } from 'comet-ui-kit';
 
 import pointingOrange from '../../../../../public/icons/pointing-orange.svg';
 import pointingPurple from '../../../../../public/icons/pointing-purple.svg';
@@ -44,13 +45,16 @@ import {
   ColumnInvoice,
   ValueInvoice,
   RowPayment,
+  RowToolTip,
+  TooltipAmount,
+  ToolTipRemote,
 } from './styled';
 
 export const Capacity = ({ unit }: { unit: TUnit }) => {
   const [isPaid, setIsPaid] = useState<Boolean>(false);
   const [isViewPayment, setIsViewPayment] = useState<Boolean>(false);
 
-  const ttlCapacity = 1000;
+  const ttlCapacity = 10000000000;
   const value = '---------';
   const valueRemote = value;
   const valueLocal = value;
@@ -64,15 +68,44 @@ export const Capacity = ({ unit }: { unit: TUnit }) => {
     toast.success(<FormattedMessage id="toast.copied.invoice" />);
   };
 
+  const remoteBaseFee = '1000';
+  const localBaseFee = '1000';
+  const remoteFeeRate = 23;
+  const localFeeRate = 77;
+
   const rowInfo = (
     <RowCapacity>
       <ColumnFee>
         <TextRemote>
           <FormattedMessage id="remote" />
         </TextRemote>
-        <FeeRemote>
-          <FormattedMessage id="fee" />
-        </FeeRemote>
+        <Tooltip
+          content={
+            <Tooltip.Content>
+              <ToolTipRemote>
+                <RowToolTip>
+                  <div>
+                    <FormattedMessage id="base-fee" />
+                  </div>
+                  <TooltipAmount>{remoteBaseFee}</TooltipAmount>
+                  <div>{unit}</div>
+                </RowToolTip>
+                <RowToolTip>
+                  <div>
+                    <FormattedMessage id="fee-rate" />
+                  </div>
+                  <TooltipAmount>{remoteFeeRate}</TooltipAmount>
+                  <div>%</div>
+                </RowToolTip>
+              </ToolTipRemote>
+            </Tooltip.Content>
+          }
+          targetHtmlTag="div"
+        >
+          <FeeRemote>
+            <FormattedMessage id="fee" />
+          </FeeRemote>
+        </Tooltip>
       </ColumnFee>
       <TtlCapacity>
         <TextCapacity>
@@ -84,9 +117,33 @@ export const Capacity = ({ unit }: { unit: TUnit }) => {
         <TextCapacity>{unit}</TextCapacity>
       </TtlCapacity>
       <ColumnFee>
-        <FeeLocal>
-          <FormattedMessage id="fee" />
-        </FeeLocal>
+        <Tooltip
+          content={
+            <Tooltip.Content>
+              <ToolTipRemote>
+                <RowToolTip>
+                  <div>
+                    <FormattedMessage id="base-fee" />
+                  </div>
+                  <TooltipAmount>{localBaseFee}</TooltipAmount>
+                  <div>{unit}</div>
+                </RowToolTip>
+                <RowToolTip>
+                  <div>
+                    <FormattedMessage id="fee-rate" />
+                  </div>
+                  <TooltipAmount>{localFeeRate}</TooltipAmount>
+                  <div>%</div>
+                </RowToolTip>
+              </ToolTipRemote>
+            </Tooltip.Content>
+          }
+          targetHtmlTag="div"
+        >
+          <FeeLocal>
+            <FormattedMessage id="fee" />
+          </FeeLocal>
+        </Tooltip>
         <TextLocal>
           <FormattedMessage id="local" />
         </TextLocal>

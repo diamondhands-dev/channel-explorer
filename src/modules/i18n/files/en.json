@@ -17,5 +17,7 @@
   "max-send": "[Max Send]",
   "view-button": "⚡️ View Capacity Balance",
   "amount-to-pay": "Amount to pay :",
-  "invoice": "Invoice"
+  "invoice": "Invoice",
+  "base-fee": "Base Fee : ",
+  "fee-rate": "Fee Rate : "
 }
