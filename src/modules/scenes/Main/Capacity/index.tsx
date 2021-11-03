@@ -1,53 +1,38 @@
-import React, { useState } from 'react';
-import { FormattedMessage, FormattedNumber } from 'react-intl';
-import Image from 'next/image';
-import { QRCode } from 'react-qrcode-logo';
-import useCopy from '@react-hook/copy';
-import { toast } from 'react-toastify';
-import Collapse from 'react-css-collapse';
 import { Tooltip } from 'comet-ui-kit';
+import Image from 'next/image';
+import React, { useState } from 'react';
+import Collapse from 'react-css-collapse';
+import { FormattedMessage, FormattedNumber } from 'react-intl';
 
 import pointingOrange from '../../../../../public/icons/pointing-orange.svg';
 import pointingPurple from '../../../../../public/icons/pointing-purple.svg';
 import { TUnit } from '../../../channel';
-import { theme } from '../../../styles';
+import { Payment } from '../Payment';
 
 import {
   Bar,
   BarBond,
+  ButtonView,
   CapacityContainer,
+  CapacityValue,
   ColumnFee,
   FeeLocal,
   FeeRemote,
   Guide,
+  MaxGuide,
   MaxReceive,
   MaxSend,
   RowCapacity,
+  RowPayment,
+  RowToolTip,
   TextCapacity,
   TextCapacityValue,
   TextLocal,
   TextRemote,
-  TtlCapacity,
-  ButtonView,
-  MaxGuide,
-  CapacityValue,
   TextValueAmount,
-  PaymentContainer,
-  IconCopy,
-  QR,
-  Amount,
-  AmountUnit,
-  Pay,
-  Price,
-  RowPay,
-  RowInvoice,
-  TextInvoice,
-  ColumnInvoice,
-  ValueInvoice,
-  RowPayment,
-  RowToolTip,
   TooltipAmount,
   ToolTipRemote,
+  TtlCapacity,
 } from './styled';
 
 export const Capacity = ({ unit }: { unit: TUnit }) => {
@@ -61,12 +46,6 @@ export const Capacity = ({ unit }: { unit: TUnit }) => {
 
   const price = 1000;
   const invoice = 'lnbc1500n1psh6pzhpp5xq3qsat4yfqc6vak0xjsmpgjsmpg44esqhffrz8';
-
-  const { copy } = useCopy(invoice);
-  const copyPk = () => {
-    copy();
-    toast.success(<FormattedMessage id="toast.copied.invoice" />);
-  };
 
   const remoteBaseFee = '1000';
   const localBaseFee = '1000';
@@ -187,49 +166,15 @@ export const Capacity = ({ unit }: { unit: TUnit }) => {
     </Guide>
   );
 
-  const payment = (
-    <PaymentContainer>
-      <Price>
-        <RowPay>
-          <Pay>
-            <FormattedMessage id="amount-to-pay" />
-          </Pay>
-          <Amount>
-            <FormattedNumber value={price} />
-          </Amount>
-          <AmountUnit>{unit}</AmountUnit>
-        </RowPay>
-        <RowInvoice>
-          <TextInvoice>
-            <FormattedMessage id="invoice" />
-          </TextInvoice>
-          <ColumnInvoice>
-            <ValueInvoice>{invoice}</ValueInvoice>
-            <IconCopy onClick={copyPk} />
-          </ColumnInvoice>
-        </RowInvoice>
-      </Price>
-      <QR>
-        <QRCode
-          size={170}
-          value={invoice}
-          bgColor="white"
-          eyeRadius={2}
-          fgColor={theme.colors.orange}
-          qrStyle="dots"
-          logoImage={'icons/dh-logo.svg'}
-        />
-      </QR>
-    </PaymentContainer>
-  );
-
   return (
     <CapacityContainer>
       {rowInfo}
       {bar}
       {rowCapacityValue}
       <Collapse isOpen={isViewPayment}>
-        <RowPayment>{payment}</RowPayment>
+        <RowPayment>
+          <Payment unit={unit} price={price} invoice={invoice} />
+        </RowPayment>
       </Collapse>
     </CapacityContainer>
   );
