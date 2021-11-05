@@ -15,13 +15,8 @@ export const Globals = ({ children }: { children: React.ReactNode }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>DH Channel Explorer</title>
         <link rel="stylesheet" href={COMET_GLOBAL_FONT_HREF} />
-
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Rajdhani&family=Raleway&display=swap"
-          rel="stylesheet"
-        />
+        <link rel="preload" href="/fonts/Rajdhani/Rajdhani-Regular.ttf" as="font" crossOrigin="" />
+        <link rel="preload" href="/fonts/Raleway/Raleway.ttf" as="font" crossOrigin="" />
 
         <link
           rel="icon"

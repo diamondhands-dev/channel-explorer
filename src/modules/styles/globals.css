@@ -1,3 +1,20 @@
+/* Ref: https://kirazhang.com/posts/nextjs-custom-fonts */
+
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway/Raleway.ttf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('/fonts/Rajdhani/Rajdhani-Regular.ttf');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 html,
 body {
   overflow-x: hidden;
