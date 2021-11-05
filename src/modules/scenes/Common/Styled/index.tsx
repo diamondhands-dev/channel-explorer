@@ -34,3 +34,7 @@ export const ButtonScale = styled(Button)`
     transform: scale(1.05);
   }
 `;
+
+export const CursorPointer = styled.div`
+  cursor: pointer;
+`;

@@ -1,5 +1,10 @@
-export const emphasizeAmount = (amount: string): { emphasized: string; rest: string } => {
-  const emphasized = amount.slice(0, 7);
-  const rest = amount.slice(7);
-  return { emphasized, rest };
+import { satoshisToBitcoin } from 'bitcoin-conversion';
+
+import { TUnit } from './../../channel';
+
+export const btcOrSats = ({ unit, sats }: { unit: TUnit; sats: number }) => {
+  if (unit === 'BTC') {
+    return satoshisToBitcoin(sats);
+  }
+  return sats;
 };

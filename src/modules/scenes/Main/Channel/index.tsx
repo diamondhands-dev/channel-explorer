@@ -15,7 +15,7 @@ import {
   ChannelInfo,
 } from './styled';
 
-export const Channel = ({ unit }: { unit: TUnit }) => {
+export const Channel = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: string }) => {
   const channelName = 'CoinPayments';
   const channelId = '745420505213435904';
   const pk = '03afa7a8196dbca763ee6f9a34b634a7adc03f154e5d6979fe654db5606b5fb2b1';
@@ -44,7 +44,7 @@ export const Channel = ({ unit }: { unit: TUnit }) => {
           <Value>{pk}</Value>
         </Row>
       </ChannelInfo>
-      <Capacity unit={unit} />
+      <Capacity unit={unit} nodeOwner={nodeOwner} channelName={channelName} />
     </ChannelContainer>
   );
 };

@@ -8,6 +8,7 @@ import CountUp from 'react-countup';
 import triangle from '../../../../../public/icons/triangle-purple.svg';
 import { TUnit } from '../../../channel';
 import { UnitSwitcher } from '../../../../components/UnitSwithcer';
+import { CursorPointer } from '../../Common';
 
 import {
   NodeOwnerContainer,
@@ -33,12 +34,14 @@ export const NodeOwner = ({
   channels,
   capacity,
   unit,
+  setUnit,
 }: {
   nodeOwner: string;
   pk: string;
   channels: number;
-  capacity: string;
+  capacity: number;
   unit: TUnit;
+  setUnit: (unit: TUnit) => void;
 }) => {
   const { copy } = useCopy(pk);
   const [isShowUnit, setIsShowUnit] = useState<Boolean>(false);
@@ -61,18 +64,18 @@ export const NodeOwner = ({
     <NodeOwnerContainer>
       <RowTag>
         <div>{tag}</div>
-        <UnitSwitcher />
+        <UnitSwitcher unit={unit} setUnit={setUnit} />
       </RowTag>
       <Box>
         <NodeName>{nodeOwner}</NodeName>
         <RowPk>
-          <div>
+          <CursorPointer onClick={copyPk}>
             <FormattedMessage id="public-key" />
-          </div>
-          <div>{pk}</div>
-          <div>
-            <IconCopy onClick={copyPk} />
-          </div>
+          </CursorPointer>
+          <CursorPointer onClick={copyPk}>{pk}</CursorPointer>
+          <CursorPointer onClick={copyPk}>
+            <IconCopy />
+          </CursorPointer>
         </RowPk>
         <RowData>
           <BoxChannel>
@@ -92,7 +95,7 @@ export const NodeOwner = ({
               <ValueData>
                 <CountUp
                   delay={1}
-                  end={Number(capacity)}
+                  end={capacity}
                   duration={2}
                   decimals={unit === 'BTC' ? 8 : 0}
                   decimal="."

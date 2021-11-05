@@ -1,4 +1,3 @@
-import { Icon } from 'comet-ui-kit';
 import { rem, transitions } from 'polished';
 import styled from 'styled-components';
 

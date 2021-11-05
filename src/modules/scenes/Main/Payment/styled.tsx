@@ -51,7 +51,6 @@ export const AmountUnit = styled(Pay)`
 export const IconCopy = styled(Icon.Paste)`
   font-size: ${rem(18)};
   color: #9b9b9b;
-  cursor: pointer;
   margin-top: ${rem(2)};
 `;
 
@@ -66,6 +65,7 @@ export const ColumnInvoice = styled.div`
   box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.25);
   border-radius: ${rem(4)};
   padding: ${rem(2)} ${rem(12)};
+  cursor: pointer;
 `;
 
 export const ValueInvoice = styled.div`

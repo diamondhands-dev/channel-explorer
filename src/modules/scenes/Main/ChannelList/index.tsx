@@ -17,7 +17,7 @@ import {
   Triangle,
 } from './styled';
 
-export const ChannelList = ({ unit }: { unit: TUnit }) => {
+export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: string }) => {
   const { channels, isLoading } = useGetChannelData();
   const [search, setSearch] = useState('');
   const tag = (
@@ -39,8 +39,8 @@ export const ChannelList = ({ unit }: { unit: TUnit }) => {
           </ColumnSearch>
         </RowTag>
       </ChannelHead>
-      <Channel unit={unit} />
-      <Channel unit={unit} />
+      <Channel unit={unit} nodeOwner={nodeOwner} />
+      <Channel unit={unit} nodeOwner={nodeOwner} />
     </ChannelListContainer>
   );
 };

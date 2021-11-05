@@ -7,6 +7,7 @@ import { FormattedMessage, FormattedNumber } from 'react-intl';
 import pointingOrange from '../../../../../public/icons/pointing-orange.svg';
 import pointingPurple from '../../../../../public/icons/pointing-purple.svg';
 import { TUnit } from '../../../channel';
+import { btcOrSats } from '../../../helper';
 import { Payment } from '../Payment';
 
 import {
@@ -35,29 +36,35 @@ import {
   TtlCapacity,
 } from './styled';
 
-export const Capacity = ({ unit }: { unit: TUnit }) => {
+export const Capacity = ({
+  unit,
+  nodeOwner,
+  channelName,
+}: {
+  unit: TUnit;
+  nodeOwner: string;
+  channelName: string;
+}) => {
   const [isPaid, setIsPaid] = useState<Boolean>(false);
   const [isViewPayment, setIsViewPayment] = useState<Boolean>(false);
 
-  const ttlCapacity = 10000000000;
+  const ttlCapacity = btcOrSats({ sats: 10000000000, unit });
   const value = '---------';
   const valueRemote = value;
   const valueLocal = value;
 
-  const price = 1000;
+  const price = btcOrSats({ sats: 1000, unit });
   const invoice = 'lnbc1500n1psh6pzhpp5xq3qsat4yfqc6vak0xjsmpgjsmpg44esqhffrz8';
 
-  const remoteBaseFee = '1000';
-  const localBaseFee = '1000';
+  const remoteBaseFee = btcOrSats({ sats: 1000, unit });
+  const localBaseFee = btcOrSats({ sats: 1000, unit });
   const remoteFeeRate = 23;
   const localFeeRate = 77;
 
   const rowInfo = (
     <RowCapacity>
       <ColumnFee>
-        <TextRemote>
-          <FormattedMessage id="remote" />
-        </TextRemote>
+        <TextRemote>{channelName}</TextRemote>
         <Tooltip
           content={
             <Tooltip.Content>
@@ -66,7 +73,9 @@ export const Capacity = ({ unit }: { unit: TUnit }) => {
                   <div>
                     <FormattedMessage id="base-fee" />
                   </div>
-                  <TooltipAmount>{remoteBaseFee}</TooltipAmount>
+                  <TooltipAmount>
+                    <FormattedNumber value={remoteBaseFee} maximumSignificantDigits={8} />
+                  </TooltipAmount>
                   <div>{unit}</div>
                 </RowToolTip>
                 <RowToolTip>
@@ -91,7 +100,7 @@ export const Capacity = ({ unit }: { unit: TUnit }) => {
           <FormattedMessage id="total-capacity" />
         </TextCapacity>
         <TextCapacityValue>
-          <FormattedNumber value={ttlCapacity} />
+          <FormattedNumber value={ttlCapacity} maximumSignificantDigits={8} />
         </TextCapacityValue>
         <TextCapacity>{unit}</TextCapacity>
       </TtlCapacity>
@@ -104,7 +113,9 @@ export const Capacity = ({ unit }: { unit: TUnit }) => {
                   <div>
                     <FormattedMessage id="base-fee" />
                   </div>
-                  <TooltipAmount>{localBaseFee}</TooltipAmount>
+                  <TooltipAmount>
+                    <FormattedNumber value={localBaseFee} maximumSignificantDigits={8} />
+                  </TooltipAmount>
                   <div>{unit}</div>
                 </RowToolTip>
                 <RowToolTip>
@@ -123,9 +134,7 @@ export const Capacity = ({ unit }: { unit: TUnit }) => {
             <FormattedMessage id="fee" />
           </FeeLocal>
         </Tooltip>
-        <TextLocal>
-          <FormattedMessage id="local" />
-        </TextLocal>
+        <TextLocal>{nodeOwner}</TextLocal>
       </ColumnFee>
     </RowCapacity>
   );

@@ -45,7 +45,7 @@ export const Payment = ({
             <FormattedMessage id="amount-to-pay" />
           </Pay>
           <Amount>
-            <FormattedNumber value={price} />
+            <FormattedNumber value={price} maximumSignificantDigits={8} />
           </Amount>
           <AmountUnit>{unit}</AmountUnit>
         </RowPay>
@@ -53,9 +53,9 @@ export const Payment = ({
           <TextInvoice>
             <FormattedMessage id="invoice" />
           </TextInvoice>
-          <ColumnInvoice>
+          <ColumnInvoice onClick={copyInvoice}>
             <ValueInvoice>{invoice}</ValueInvoice>
-            <IconCopy onClick={copyInvoice} />
+            <IconCopy />
           </ColumnInvoice>
         </RowInvoice>
       </Price>
@@ -67,7 +67,6 @@ export const Payment = ({
           eyeRadius={2}
           fgColor={theme.colors.orange}
           qrStyle="dots"
-          logoImage={'icons/dh-logo.svg'}
         />
       </QR>
     </PaymentContainer>

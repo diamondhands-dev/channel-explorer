@@ -1,1 +1,1 @@
-export { emphasizeAmount } from './unit';
+export { btcOrSats } from './unit';

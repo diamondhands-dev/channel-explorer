@@ -10,3 +10,7 @@ export enum PATH {
   INVOICE = '/invoice',
   POOL = '/checkInvoice',
 }
+
+export enum LOCAL_STORAGE {
+  Unit = 'unit',
+}

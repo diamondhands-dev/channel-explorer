@@ -1,6 +1,5 @@
-import { emphasizeAmount } from './../index';
-it('separate the amount', () => {
-  const result = emphasizeAmount('15.83473291');
-  expect(result.emphasized).toStrictEqual('15.8347');
-  expect(result.rest).toStrictEqual('3291');
+import { btcOrSats } from './../index';
+it('show amount by selected unit', () => {
+  expect(btcOrSats({ unit: 'sats', sats: 1000 })).toStrictEqual(1000);
+  expect(btcOrSats({ unit: 'BTC', sats: 1000 })).toStrictEqual(0.00001);
 });

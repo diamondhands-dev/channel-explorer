@@ -28,12 +28,12 @@ export const Node = ({ channel, i }: { channel: IChannel; i: number }) => {
 
             <div>
               <Text variant="normal">
-                <FormattedNumber value={node1BaseFee} />
+                <FormattedNumber value={node1BaseFee} maximumSignificantDigits={8} />
                 &nbsp;msats
               </Text>
               <br />
               <Text variant="normal">
-                <FormattedNumber value={node1FeeRate} />
+                <FormattedNumber value={node1FeeRate} maximumSignificantDigits={8} />
                 &nbsp;ppm
               </Text>
             </div>
@@ -42,12 +42,12 @@ export const Node = ({ channel, i }: { channel: IChannel; i: number }) => {
             </Bar>
             <div>
               <Text variant="normal">
-                <FormattedNumber value={node2BaseFee} />
+                <FormattedNumber value={node2BaseFee} maximumSignificantDigits={8} />
                 &nbsp;msats
               </Text>
               <br />
               <Text variant="normal">
-                <FormattedNumber value={node2FeeRate} /> &nbsp;ppm
+                <FormattedNumber value={node2FeeRate} maximumSignificantDigits={8} /> &nbsp;ppm
               </Text>
             </div>
           </Highlight>

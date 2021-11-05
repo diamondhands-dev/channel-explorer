@@ -70,7 +70,6 @@ export const RowPk = styled.div`
 export const IconCopy = styled(Icon.Paste)`
   font-size: ${rem(18)};
   color: #9b9b9b;
-  cursor: pointer;
 `;
 
 export const RowData = styled.div`
