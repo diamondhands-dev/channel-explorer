@@ -7,7 +7,7 @@
   "public-key": "公開鍵 :",
   "channels": "Channels",
   "capacity": "キャパシティ",
-  "placeholder.search": "チャネル名又は公開鍵で検索",
+  "placeholder.search": "チャネル又は公開鍵で検索",
   "channel-id": "チャネル ID :",
   "channel-information": "チャネル情報",
   "fee": "Fee",
