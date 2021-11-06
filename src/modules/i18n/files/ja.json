@@ -10,7 +10,7 @@
   "placeholder.search": "チャネル名又は公開鍵で検索",
   "channel-id": "チャネル ID :",
   "channel-information": "チャネル情報",
-  "fee": "手数料",
+  "fee": "Fee",
   "total-capacity": "キャパシティ合計 :",
   "max-receive": "[Max Receive]",
   "max-send": "[Max Send]",

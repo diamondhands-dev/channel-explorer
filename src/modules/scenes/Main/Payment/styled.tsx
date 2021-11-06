@@ -54,6 +54,7 @@ export const Pay = styled.div`
 
 export const TextInvoice = styled(Pay)`
   font-size: ${rem(14)};
+  white-space: nowrap;
 `;
 
 export const Amount = styled.div`

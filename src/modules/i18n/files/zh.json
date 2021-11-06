@@ -10,7 +10,7 @@
   "placeholder.search": "搜索Channel名或公钥",
   "channel-id": "通道 ID :",
   "channel-information": "Channel Information",
-  "fee": "手续费",
+  "fee": "Fee",
   "total-capacity": "总容量 :",
   "max-receive": "[Max Receive]",
   "max-send": "[Max Send]",
