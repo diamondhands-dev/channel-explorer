@@ -8,16 +8,13 @@ const { media } = StylingConstants;
 
 export const SearchInput = styled(TextInput)`
   width: 100%;
-  font-size: ${rem(16)};
+  font-size: ${rem(14)};
   height: ${rem(80)};
   @media (min-width: ${rem(media.sm)}) {
-    width: ${rem(250)};
+    width: ${rem(350)};
     padding-left: 0;
     padding-right: 0;
     margin-top: ${({ theme }) => rem(-10)};
-  }
-  @media (min-width: ${rem(media.lg)}) {
-    width: ${rem(350)};
     font-size: ${rem(16)};
   }
 

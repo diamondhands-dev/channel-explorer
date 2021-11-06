@@ -1,10 +1,19 @@
 import { Dropdown } from 'comet-ui-kit';
 import React, { useMemo } from 'react';
+import Image from 'next/image';
 
+import earth from '../../../public/icons/earth.svg';
 import { theme } from '../../modules/styles';
 
 import { getLanguageName } from './getLanguageName';
-import { Container, CustomDropDown, TextChosenLanguage } from './styled';
+import {
+  Container,
+  CustomDropDown,
+  TextChosenLanguage,
+  Logo,
+  Selected,
+  RowSelected,
+} from './styled';
 
 type Props = { locale: string; locales: string[]; onChange?: (locale: string) => void };
 
@@ -23,8 +32,15 @@ export const LocaleSwitcher = ({ locale, locales: localesParam, onChange }: Prop
     <Container>
       <CustomDropDown
         target={
-          <Dropdown.DefaultTarget color={theme.styles.orange} size="city">
-            <TextChosenLanguage>{getLanguageName(locale)}</TextChosenLanguage>
+          <Dropdown.DefaultTarget color={theme.colors.silver} size="city">
+            <RowSelected>
+              <Logo>
+                <Image src={earth} alt="earth" />
+              </Logo>
+              <Selected>
+                <TextChosenLanguage>{getLanguageName(locale)}</TextChosenLanguage>
+              </Selected>
+            </RowSelected>
           </Dropdown.DefaultTarget>
         }
       >

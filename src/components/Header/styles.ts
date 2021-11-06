@@ -1,53 +1,85 @@
 import { rem } from 'polished';
 import styled from 'styled-components';
 
-import { theme } from './../../modules/styles';
+import { StylingConstants, theme } from './../../modules/styles';
 
+const { media } = StylingConstants;
 export const HeaderContainer = styled.nav`
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: ${rem(16)} ${rem(42)};
+  padding: ${rem(8)} ${rem(20)};
   background-color: ${theme.colors.headerBg};
+  @media (min-width: ${rem(media.sm)}) {
+    align-items: center;
+    padding: ${rem(16)} ${rem(42)};
+  }
 `;
 
-export const Right = styled.div``;
+export const Right = styled.div`
+  margin-top: ${rem(-8)};
+  @media (min-width: ${rem(media.sm)}) {
+    margin-top: ${rem(0)};
+  }
+`;
 
 export const Left = styled.div`
   display: flex;
   column-gap: ${rem(32)};
+  flex-direction: column;
+  @media (min-width: ${rem(media.md)}) {
+    flex-direction: row;
+  }
 `;
 export const ProvideBy = styled.div`
   font-weight: 600;
   color: ${theme.colors.white};
-  align-self: flex-end;
-  display: grid;
-  grid-template-columns: auto auto auto;
   column-gap: ${rem(4)};
+  display: flex;
   position: relative;
-  padding-bottom: ${rem(4)};
+  margin-top: ${rem(4)};
+  font-size: ${rem(14)};
+  @media (min-width: ${rem(media.md)}) {
+    margin-top: ${rem(0)};
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-self: flex-end;
+    padding-bottom: ${rem(6)};
+  }
 `;
 
 export const Title = styled.span`
-  font-size: ${rem(30)};
+  font-size: ${rem(24)};
   font-weight: bold;
   background: ${theme.colors.logo};
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
+  @media (min-width: ${rem(media.md)}) {
+    font-size: ${rem(30)};
+  }
 `;
 
 export const TitleSmall = styled(Title)`
-  font-size: ${rem(18)};
+  font-size: ${rem(14)};
+  font-weight: 600;
+  @media (min-width: ${rem(media.md)}) {
+    font-size: ${rem(14)};
+  }
 `;
 
 export const Logo = styled.div`
-  position: absolute;
-  right: ${rem(-30)};
-  bottom: 0;
+  @media (min-width: ${rem(media.md)}) {
+    position: absolute;
+    right: ${rem(-30)};
+    bottom: 0;
+  }
 `;
 
 export const Atag = styled.a`
-  border-bottom: 1px solid ${theme.colors.white};
+  text-decoration: underline;
+  @media (min-width: ${rem(media.md)}) {
+    text-decoration: none;
+    border-bottom: 1px solid ${theme.colors.white};
+  }
 `;

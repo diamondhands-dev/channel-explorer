@@ -27,6 +27,20 @@ export const SizeL = styled.div`
   }
 `;
 
+export const MobileToM = styled.div`
+  display: block;
+  @media (min-width: ${rem(media.md)}) {
+    display: none;
+  }
+`;
+
+export const MobileToL = styled.div`
+  display: block;
+  @media (min-width: ${rem(media.lg)}) {
+    display: none;
+  }
+`;
+
 export const ButtonScale = styled(Button)`
   transition: all 0.3s ease 0s;
   :hover {

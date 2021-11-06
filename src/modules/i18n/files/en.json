@@ -9,6 +9,7 @@
   "capacity": "Capacity",
   "placeholder.search": "Search for Channel Name or Public Key",
   "channel-id": "Channel ID :",
+  "channel-information": "Channel Information",
   "fee": "Fee",
   "total-capacity": "Total Capacity :",
   "max-receive": "[Max Receive]",

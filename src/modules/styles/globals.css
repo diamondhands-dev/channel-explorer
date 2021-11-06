@@ -8,6 +8,20 @@
   font-display: swap;
 }
 @font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway/static/Raleway-Bold.ttf');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway/static/Raleway-SemiBold.ttf');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
   font-family: 'Rajdhani';
   src: url('/fonts/Rajdhani/Rajdhani-Regular.ttf');
   font-style: normal;

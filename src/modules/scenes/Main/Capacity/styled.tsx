@@ -1,17 +1,19 @@
 import { rem, transitions } from 'polished';
 import styled from 'styled-components';
 
-import { theme } from '../../../styles';
+import { StylingConstants, theme } from '../../../styles';
 
-// import { StylingConstants } from '../../../styles';
-// const { media } = StylingConstants;
+const { media } = StylingConstants;
 
 export const CapacityContainer = styled.div`
-  padding: ${rem(32)};
+  padding: ${rem(12)} ${rem(12)};
   width: 100%;
   border: ${theme.styles.borderDarkGray};
   box-sizing: border-box;
   box-shadow: ${theme.styles.boxShadow};
+  @media (min-width: ${rem(media.lg)}) {
+    padding: ${rem(32)};
+  }
 `;
 
 export const Row = styled.div`
@@ -21,19 +23,42 @@ export const Row = styled.div`
 `;
 
 export const RowCapacity = styled(Row)`
+  margin-top: ${rem(12)};
   margin-bottom: ${rem(12)};
+  @media (min-width: ${rem(media.lg)}) {
+    margin-top: ${rem(0)};
+  }
 `;
 
-export const ColumnFee = styled.div`
+export const ColumnFeeRemote = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  column-gap: ${rem(14)};
+  flex-direction: column;
+  @media (min-width: ${rem(media.lg)}) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: ${rem(14)};
+  }
+`;
+
+export const ColumnFeeLocal = styled(ColumnFeeRemote)`
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  @media (min-width: ${rem(media.lg)}) {
+    flex-direction: row;
+    align-items: center;
+  }
 `;
 
 export const TextRemote = styled.span`
+  font-size: ${rem(14)};
+  margin-bottom: ${rem(2)};
   font-weight: 600;
   color: ${theme.colors.orange};
+  @media (min-width: ${rem(media.sm)}) {
+    font-size: ${rem(16)};
+    margin-bottom: ${rem(0)};
+  }
 `;
 
 export const TextLocal = styled(TextRemote)`
@@ -41,6 +66,8 @@ export const TextLocal = styled(TextRemote)`
 `;
 
 export const FeeRemote = styled.div`
+  width: ${rem(40)};
+  text-align: center;
   background: ${theme.colors.orange};
   color: ${theme.colors.white};
   text-decoration: underline;
@@ -49,6 +76,11 @@ export const FeeRemote = styled.div`
   font-weight: 600;
   font-size: ${rem(14)};
   cursor: pointer;
+  margin-top: ${rem(2)};
+  @media (min-width: ${rem(media.lg)}) {
+    margin-top: ${rem(0)};
+    width: 100%;
+  }
 `;
 
 export const FeeLocal = styled(FeeRemote)`
@@ -59,17 +91,34 @@ export const TtlCapacity = styled.div`
   display: flex;
   align-items: center;
   column-gap: ${rem(4)};
+  flex-flow: column;
+  font-size: ${rem(14)};
+  @media (min-width: ${rem(media.lg)}) {
+    font-size: ${rem(16)};
+    flex-flow: row;
+  }
+`;
+
+export const ColumnCapacityValue = styled(TtlCapacity)`
+  flex-flow: row;
 `;
 
 export const TextCapacityValue = styled.span`
   font-family: 'Rajdhani';
   font-weight: 600;
-  font-size: ${rem(24)};
+  font-size: ${rem(20)};
   padding-bottom: ${rem(2)};
+  @media (min-width: ${rem(media.lg)}) {
+    font-size: ${rem(24)};
+  }
 `;
 
 export const TextCapacity = styled.span`
   font-weight: 500;
+  margin-bottom: ${rem(2)};
+  @media (min-width: ${rem(media.lg)}) {
+    margin-bottom: ${rem(0)};
+  }
 `;
 
 export const BarBond = styled.div<{ widthPercentage: number }>`
@@ -97,6 +146,14 @@ export const Guide = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: ${rem(24)};
+`;
+
+export const RowButton = styled.div`
+  margin-bottom: ${rem(6)};
+  @media (min-width: ${rem(media.xs)}) {
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const ButtonView = styled.div`
@@ -134,17 +191,26 @@ export const MaxGuide = styled.div`
   display: flex;
   align-items: flex-end;
   column-gap: ${rem(4)};
+  margin-bottom: ${rem(14)};
 `;
+
+export const Triangle = styled.div``;
 
 export const CapacityValue = styled.div`
   display: flex;
   align-items: center;
   column-gap: ${rem(4)};
+  font-size: ${rem(16)};
 `;
 
 export const TextValueAmount = styled.div`
-  font-size: ${rem(24)};
   font-weight: 600;
+  @media (min-width: ${rem(media.sm)}) {
+    font-size: ${rem(20)};
+  }
+  @media (min-width: ${rem(media.lg)}) {
+    font-size: ${rem(24)};
+  }
 `;
 
 export const RowPayment = styled.div`

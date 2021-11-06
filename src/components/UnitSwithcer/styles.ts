@@ -26,20 +26,20 @@ export const Switcher = styled.div`
   box-shadow: inset 0px 1px 2px rgba(0, 0, 0, 0.59);
 `;
 
-export const Right = styled.div<isActivateProps>`
+const Unit = styled.div<isActivateProps>`
   padding: ${rem(4)} 0;
-  background: ${theme.colors.rat};
-  border-top-right-radius: ${rem(5)};
-  border-bottom-right-radius: ${rem(5)};
-  color: ${theme.colors.darkGray};
-  box-shadow: ${(props) => props.isActivate && '1px 1px 2px rgba(0, 0, 0, 0.46)'};
+  box-shadow: ${({ isActivate }) => isActivate && '1px 1px 2px rgba(0, 0, 0, 0.46)'};
+  background: ${({ isActivate }) => (isActivate ? theme.colors.unitActiveBg : theme.colors.rat)};
+  color: ${({ isActivate }) => (isActivate ? theme.colors.teal : theme.colors.darkGray)};
+  transition: all 0.5s ease 0s;
 `;
 
-export const Left = styled.div<isActivateProps>`
-  padding: ${rem(4)} 0;
-  background: ${theme.colors.unitSats};
+export const Right = styled(Unit)`
+  border-top-right-radius: ${rem(5)};
+  border-bottom-right-radius: ${rem(5)};
+`;
+
+export const Left = styled(Unit)`
   border-top-left-radius: ${rem(5)};
   border-bottom-left-radius: ${rem(5)};
-  color: ${theme.colors.teal};
-  box-shadow: ${(props) => props.isActivate && '1px 1px 2px rgba(0, 0, 0, 0.46)'};
 `;

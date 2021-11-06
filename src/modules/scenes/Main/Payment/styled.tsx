@@ -1,22 +1,33 @@
 import { Icon } from 'comet-ui-kit';
-import { rem, transitions } from 'polished';
+import { rem } from 'polished';
 import styled from 'styled-components';
 
-import { theme } from '../../../styles';
+import { StylingConstants, theme } from '../../../styles';
 
-// import { StylingConstants } from '../../../styles';
-// const { media } = StylingConstants;
+const { media } = StylingConstants;
 
 export const PaymentContainer = styled.div`
-  padding: ${rem(28)} ${rem(32)};
+  padding: ${rem(16)} ${rem(4)};
   width: 100%;
   max-width: ${rem(844)};
   background: ${theme.colors.paymentBg};
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: ${rem(media.md)}) {
+    padding: ${rem(28)} ${rem(32)};
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 `;
 
-export const Price = styled.div``;
+export const Price = styled.div`
+  margin-bottom: ${rem(12)};
+  @media (min-width: ${rem(media.md)}) {
+    margin-bottom: ${rem(0)};
+  }
+`;
 
 export const QR = styled.div``;
 
@@ -25,12 +36,20 @@ export const RowPay = styled.div`
   align-items: center;
   column-gap: ${rem(8)};
   margin-bottom: ${rem(8)};
+  justify-content: center;
+  @media (min-width: ${rem(media.md)}) {
+    justify-content: flex-start;
+  }
 `;
 
 export const RowInvoice = styled(RowPay)``;
 
 export const Pay = styled.div`
   font-weight: 500;
+  font-size: ${rem(14)};
+  @media (min-width: ${rem(media.sm)}) {
+    font-size: ${rem(16)};
+  }
 `;
 
 export const TextInvoice = styled(Pay)`
@@ -40,12 +59,18 @@ export const TextInvoice = styled(Pay)`
 export const Amount = styled.div`
   font-family: 'Rajdhani';
   font-weight: 600;
-  font-size: ${rem(34)};
   margin-bottom: ${rem(4)};
+  font-size: ${rem(28)};
+  @media (min-width: ${rem(media.sm)}) {
+    font-size: ${rem(34)};
+  }
 `;
 
 export const AmountUnit = styled(Pay)`
-  font-size: ${rem(20)};
+  font-size: ${rem(16)};
+  @media (min-width: ${rem(media.sm)}) {
+    font-size: ${rem(20)};
+  }
 `;
 
 export const IconCopy = styled(Icon.Paste)`
@@ -70,8 +95,22 @@ export const ColumnInvoice = styled.div`
 
 export const ValueInvoice = styled.div`
   width: 100%;
-  max-width: ${rem(420)};
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  max-width: ${rem(120)};
+  font-size: ${rem(14)};
+  @media (min-width: ${rem(media.xs)}) {
+    max-width: ${rem(150)};
+  }
+  @media (min-width: ${rem(media.sm)}) {
+    font-size: ${rem(16)};
+    max-width: ${rem(200)};
+  }
+  @media (min-width: ${rem(media.md)}) {
+    max-width: ${rem(250)};
+  }
+  @media (min-width: ${rem(media.lg)}) {
+    max-width: ${rem(420)};
+  }
 `;

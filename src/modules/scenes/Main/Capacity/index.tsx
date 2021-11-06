@@ -8,6 +8,7 @@ import pointingOrange from '../../../../../public/icons/pointing-orange.svg';
 import pointingPurple from '../../../../../public/icons/pointing-purple.svg';
 import { TUnit } from '../../../channel';
 import { btcOrSats } from '../../../helper';
+import { MobileToM, SizeM } from '../../Common';
 import { Payment } from '../Payment';
 
 import {
@@ -16,13 +17,16 @@ import {
   ButtonView,
   CapacityContainer,
   CapacityValue,
-  ColumnFee,
+  ColumnCapacityValue,
+  ColumnFeeLocal,
+  ColumnFeeRemote,
   FeeLocal,
   FeeRemote,
   Guide,
   MaxGuide,
   MaxReceive,
   MaxSend,
+  RowButton,
   RowCapacity,
   RowPayment,
   RowToolTip,
@@ -33,6 +37,7 @@ import {
   TextValueAmount,
   TooltipAmount,
   ToolTipRemote,
+  Triangle,
   TtlCapacity,
 } from './styled';
 
@@ -61,9 +66,29 @@ export const Capacity = ({
   const remoteFeeRate = 23;
   const localFeeRate = 77;
 
+  const columnTtlCapacity = (
+    <TtlCapacity>
+      <TextCapacity>
+        <FormattedMessage id="total-capacity" />
+      </TextCapacity>
+      <ColumnCapacityValue>
+        <TextCapacityValue>
+          <FormattedNumber value={ttlCapacity} maximumSignificantDigits={8} />
+        </TextCapacityValue>
+        <TextCapacity>{unit}</TextCapacity>
+      </ColumnCapacityValue>
+    </TtlCapacity>
+  );
+
+  const viewButton = !isViewPayment && (
+    <ButtonView onClick={() => setIsViewPayment(true)}>
+      <FormattedMessage id="view-button" />
+    </ButtonView>
+  );
+
   const rowInfo = (
     <RowCapacity>
-      <ColumnFee>
+      <ColumnFeeRemote>
         <TextRemote>{channelName}</TextRemote>
         <Tooltip
           content={
@@ -94,17 +119,9 @@ export const Capacity = ({
             <FormattedMessage id="fee" />
           </FeeRemote>
         </Tooltip>
-      </ColumnFee>
-      <TtlCapacity>
-        <TextCapacity>
-          <FormattedMessage id="total-capacity" />
-        </TextCapacity>
-        <TextCapacityValue>
-          <FormattedNumber value={ttlCapacity} maximumSignificantDigits={8} />
-        </TextCapacityValue>
-        <TextCapacity>{unit}</TextCapacity>
-      </TtlCapacity>
-      <ColumnFee>
+      </ColumnFeeRemote>
+      <SizeM>{columnTtlCapacity}</SizeM>
+      <ColumnFeeLocal>
         <Tooltip
           content={
             <Tooltip.Content>
@@ -135,7 +152,7 @@ export const Capacity = ({
           </FeeLocal>
         </Tooltip>
         <TextLocal>{nodeOwner}</TextLocal>
-      </ColumnFee>
+      </ColumnFeeLocal>
     </RowCapacity>
   );
 
@@ -149,7 +166,9 @@ export const Capacity = ({
     <Guide>
       <MaxReceive>
         <MaxGuide>
-          <Image src={pointingOrange} alt="pointing-receive" />
+          <Triangle>
+            <Image src={pointingOrange} alt="pointing-receive" />
+          </Triangle>
           <FormattedMessage id="max-receive" />
         </MaxGuide>
         <CapacityValue>
@@ -157,15 +176,13 @@ export const Capacity = ({
           <div>{unit}</div>
         </CapacityValue>
       </MaxReceive>
-      {!isViewPayment && (
-        <ButtonView onClick={() => setIsViewPayment(true)}>
-          <FormattedMessage id="view-button" />
-        </ButtonView>
-      )}
+      <SizeM>{viewButton}</SizeM>
       <MaxSend>
         <MaxGuide>
           <FormattedMessage id="max-send" />
-          <Image src={pointingPurple} alt="pointing-send" />
+          <Triangle>
+            <Image src={pointingPurple} alt="pointing-send" />
+          </Triangle>
         </MaxGuide>
         <CapacityValue>
           <TextValueAmount>{valueLocal}</TextValueAmount>
@@ -177,9 +194,13 @@ export const Capacity = ({
 
   return (
     <CapacityContainer>
+      <MobileToM>{columnTtlCapacity}</MobileToM>
       {rowInfo}
       {bar}
       {rowCapacityValue}
+      <MobileToM>
+        <RowButton>{viewButton}</RowButton>
+      </MobileToM>
       <Collapse isOpen={isViewPayment}>
         <RowPayment>
           <Payment unit={unit} price={price} invoice={invoice} />

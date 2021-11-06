@@ -1,1 +1,1 @@
-export { SizeS, SizeM, SizeL, ButtonScale, CursorPointer } from './Styled';
+export { SizeS, SizeM, SizeL, ButtonScale, CursorPointer, MobileToL, MobileToM } from './Styled';

@@ -8,7 +8,6 @@ import CountUp from 'react-countup';
 import triangle from '../../../../../public/icons/triangle-purple.svg';
 import { TUnit } from '../../../channel';
 import { UnitSwitcher } from '../../../../components/UnitSwithcer';
-import { CursorPointer } from '../../Common';
 
 import {
   NodeOwnerContainer,
@@ -26,6 +25,12 @@ import {
   RowAmount,
   BoxCapacity,
   BoxChannel,
+  ColumnSwitch,
+  LabelPk,
+  LabelPkMobile,
+  Pk,
+  IconMobile,
+  ColumnIconCopy,
 } from './styled';
 
 export const NodeOwner = ({
@@ -64,18 +69,28 @@ export const NodeOwner = ({
     <NodeOwnerContainer>
       <RowTag>
         <div>{tag}</div>
-        <UnitSwitcher unit={unit} setUnit={setUnit} />
+        <ColumnSwitch>
+          <UnitSwitcher unit={unit} setUnit={setUnit} />
+        </ColumnSwitch>
       </RowTag>
       <Box>
         <NodeName>{nodeOwner}</NodeName>
+        <LabelPkMobile>
+          <FormattedMessage id="public-key" />
+        </LabelPkMobile>
         <RowPk>
-          <CursorPointer onClick={copyPk}>
+          <LabelPk onClick={copyPk}>
             <FormattedMessage id="public-key" />
-          </CursorPointer>
-          <CursorPointer onClick={copyPk}>{pk}</CursorPointer>
-          <CursorPointer onClick={copyPk}>
+          </LabelPk>
+          <Pk onClick={copyPk}>
+            {pk}
+            <IconMobile>
+              <IconCopy />
+            </IconMobile>
+          </Pk>
+          <ColumnIconCopy onClick={copyPk}>
             <IconCopy />
-          </CursorPointer>
+          </ColumnIconCopy>
         </RowPk>
         <RowData>
           <BoxChannel>
