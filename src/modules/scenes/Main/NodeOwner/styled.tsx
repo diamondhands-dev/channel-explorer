@@ -63,6 +63,10 @@ export const TagNode = styled.div`
   justify-content: center;
   align-items: center;
   left: ${rem(-8)};
+  top: ${rem(-5)};
+  @media (min-width: ${rem(media.sm)}) {
+    top: auto;
+  }
 `;
 
 export const Triangle = styled.div`

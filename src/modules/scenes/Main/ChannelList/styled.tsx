@@ -28,6 +28,10 @@ export const TagChannel = styled.div`
   justify-content: center;
   align-items: center;
   left: ${rem(-8)};
+  top: ${rem(-5)};
+  @media (min-width: ${rem(media.sm)}) {
+    top: auto;
+  }
 `;
 
 export const Triangle = styled.div`
@@ -52,6 +56,7 @@ export const ColumnSearch = styled.div`
   padding-left: ${rem(16)};
   padding-right: ${rem(16)};
   @media (min-width: ${rem(media.sm)}) {
+    padding-right: ${rem(0)};
     margin-top: ${rem(0)};
     padding-top: ${rem(8)};
     margin-right: ${rem(28)};

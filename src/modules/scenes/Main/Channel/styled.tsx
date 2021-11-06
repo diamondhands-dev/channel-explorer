@@ -36,6 +36,7 @@ export const Row = styled.div`
   display: flex;
   column-gap: ${rem(12)};
   padding-top: ${rem(8)};
+  word-break: break-all;
   @media (min-width: ${rem(media.sm)}) {
     column-gap: ${rem(32)};
   }
@@ -55,7 +56,6 @@ export const Title = styled.div`
 
 export const Value = styled.div`
   font-weight: 500;
-  overflow-wrap: anywhere;
 `;
 
 export const Atag = styled.a`

@@ -150,7 +150,7 @@ export const Guide = styled.div`
 
 export const RowButton = styled.div`
   margin-bottom: ${rem(6)};
-  @media (min-width: ${rem(media.xs)}) {
+  @media (min-width: ${rem(media.sm)}) {
     display: flex;
     justify-content: center;
   }
@@ -168,7 +168,9 @@ export const ButtonView = styled.div`
   color: ${theme.colors.white};
   font-weight: bold;
   cursor: pointer;
-  min-width: ${rem(250)};
+  @media (min-width: ${rem(media.sm)}) {
+    min-width: ${rem(250)};
+  }
   :hover {
     background: ${theme.colors.buttonCapacityBgHover};
     box-shadow: ${theme.styles.boxShadowButtonCapacityHover};
