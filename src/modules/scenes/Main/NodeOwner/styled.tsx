@@ -151,31 +151,26 @@ export const RowData = styled.div`
   }
 `;
 
-export const BoxData = styled.div`
+export const BoxInside = styled.div`
   padding: ${rem(16)} ${rem(8)};
   display: flex;
   flex-direction: column;
   align-items: center;
-  border-radius: ${rem(6)};
-  border-top: ${rem(2)} solid #d36bf8;
-  border-bottom: ${rem(2)} solid #965bf4;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  background-position: 0 0, 100% 0;
-  background-repeat: no-repeat;
-  -webkit-background-size: ${rem(2)} 100%;
-  -moz-background-size: ${rem(2)} 100%;
-  background-size: ${rem(2)} 100%;
-  background-image: linear-gradient(to bottom, #d36bf8 3.68%, #965bf4 100%),
-    linear-gradient(to bottom, #d36bf8 3.68%, #965bf4 100%);
-
   @media (min-width: ${rem(media.sm)}) {
     padding: ${rem(16)} ${rem(24)};
   }
   @media (min-width: ${rem(media.md)}) {
     padding: ${rem(30)} ${rem(56)};
   }
+`;
+
+export const BoxData = styled.div`
+  border: double 2.5px transparent;
+  border-radius: ${rem(8)};
+  background-image: linear-gradient(white, white),
+    radial-gradient(circle at top left, #d36bf8, #965bf4);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
 `;
 
 export const BoxCapacity = styled(BoxData)`

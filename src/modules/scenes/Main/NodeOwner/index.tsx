@@ -31,6 +31,7 @@ import {
   Pk,
   IconMobile,
   ColumnIconCopy,
+  BoxInside,
 } from './styled';
 
 export const NodeOwner = ({
@@ -94,37 +95,41 @@ export const NodeOwner = ({
         </RowPk>
         <RowData>
           <BoxChannel>
-            <TitleData>
-              <FormattedMessage id="channels" />
-            </TitleData>
-            <ValueData className="animate__animated  animate__fadeInLeft">
-              <CountUp delay={1} end={channels} duration={2} decimal="." className="count-up" />
-            </ValueData>
+            <BoxInside>
+              <TitleData>
+                <FormattedMessage id="channels" />
+              </TitleData>
+              <ValueData className="animate__animated  animate__fadeInLeft">
+                <CountUp delay={1} end={channels} duration={2} decimal="." className="count-up" />
+              </ValueData>
+            </BoxInside>
           </BoxChannel>
 
           <BoxCapacity>
-            <TitleData>
-              <FormattedMessage id="capacity" />
-            </TitleData>
-            <RowAmount className="animate__animated  animate__fadeInLeft">
-              <ValueData>
-                <CountUp
-                  delay={1}
-                  end={capacity}
-                  duration={2}
-                  decimals={unit === 'BTC' ? 8 : 0}
-                  decimal="."
-                  separator=","
-                  className="count-up"
-                  onEnd={() => setIsShowUnit(true)}
-                />
-              </ValueData>
-              {isShowUnit && (
-                <ValueDataSmall className="animate__animated  animate__fadeInLeft">
-                  {unit}
-                </ValueDataSmall>
-              )}
-            </RowAmount>
+            <BoxInside>
+              <TitleData>
+                <FormattedMessage id="capacity" />
+              </TitleData>
+              <RowAmount className="animate__animated  animate__fadeInLeft">
+                <ValueData>
+                  <CountUp
+                    delay={1}
+                    end={capacity}
+                    duration={2}
+                    decimals={unit === 'BTC' ? 8 : 0}
+                    decimal="."
+                    separator=","
+                    className="count-up"
+                    onEnd={() => setIsShowUnit(true)}
+                  />
+                </ValueData>
+                {isShowUnit && (
+                  <ValueDataSmall className="animate__animated  animate__fadeInLeft">
+                    {unit}
+                  </ValueDataSmall>
+                )}
+              </RowAmount>
+            </BoxInside>
           </BoxCapacity>
         </RowData>
       </Box>
