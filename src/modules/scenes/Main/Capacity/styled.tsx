@@ -168,6 +168,7 @@ export const ButtonView = styled.div`
   color: ${theme.colors.white};
   font-weight: bold;
   cursor: pointer;
+  text-align: center;
   @media (min-width: ${rem(media.sm)}) {
     min-width: ${rem(250)};
   }
