@@ -14,42 +14,33 @@ export const SearchInput = styled(TextInput)`
     width: ${rem(350)};
     padding-left: 0;
     padding-right: 0;
-    margin-top: ${({ theme }) => rem(-10)};
+    margin-top: ${rem(-10)};
     font-size: ${rem(16)};
   }
 
-  /* Development */
+  .sc-hzMMVR,
   .iEbboh {
+    box-sizing: border-box;
+    box-shadow: inset 0px 0px 1.5px rgba(0, 0, 0, 0.33);
+  }
+
+  .iEbboh,
+  .kErWcB,
+  .sc-dWddBi,
+  .ctoQuI,
+  .sc-dWddBi {
     .fzAUAg {
       color: ${theme.colors.placeholderOrange};
     }
   }
 
-  .hnDFEq {
-    border-color: ${theme.styles.orange};
-    .fzAUAg {
-      color: ${theme.styles.orange};
-    }
+  .fzAUAg,
+  .sc-dWddBi {
+    color: ${theme.styles.orange};
   }
-
-  /* Production */
-  .kErWcB {
-    .sc-dWddBi {
-      color: ${theme.colors.placeholderOrange};
-    }
-  }
-
-  .ctoQuI {
-    .sc-dWddBi {
-      color: ${theme.colors.placeholderOrange};
-    }
-  }
-
+  .hnDFEq,
   .ebaotP {
     border-color: ${theme.styles.orange};
-    .sc-dWddBi {
-      color: ${theme.styles.orange};
-    }
   }
 `;
 

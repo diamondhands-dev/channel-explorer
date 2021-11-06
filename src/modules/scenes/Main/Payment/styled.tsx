@@ -7,7 +7,7 @@ import { StylingConstants, theme } from '../../../styles';
 const { media } = StylingConstants;
 
 export const PaymentContainer = styled.div`
-  padding: ${rem(16)} ${rem(4)};
+  padding: ${rem(16)} ${rem(10)};
   width: 100%;
   max-width: ${rem(844)};
   background: ${theme.colors.paymentBg};
@@ -99,7 +99,7 @@ export const ValueInvoice = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  max-width: ${rem(120)};
+  max-width: ${rem(100)};
   font-size: ${rem(14)};
   @media (min-width: ${rem(media.xs)}) {
     max-width: ${rem(150)};

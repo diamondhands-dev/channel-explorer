@@ -26,6 +26,7 @@ const colors = {
 const styles = {
   boxShadow: '0px 0px 6px rgba(0, 0, 0, 0.25)',
   boxShadowBar: 'inset 0px 1px 3px rgba(0, 0, 0, 0.62)',
+  boxShadowRowBottom: '0px 1px 2px rgba(0, 0, 0, 0.2)',
   boxShadowButtonCapacity: '0px 2px 2px #3b0989',
   boxShadowButtonCapacityHover: 'inset 0px 2px 0px rgba(59, 9, 137, 0.39)',
   borderGray: '1px solid #d2d2d2',

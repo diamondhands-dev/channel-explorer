@@ -39,10 +39,7 @@ export const RowTag = styled.div`
   height: ${rem(34)};
   display: flex;
   justify-content: space-between;
-  margin-bottom: ${rem(18)};
-  @media (min-width: ${rem(media.sm)}) {
-    margin-bottom: ${rem(8)};
-  }
+  margin-bottom: ${rem(8)};
 `;
 
 export const ColumnSwitch = styled.div`
@@ -76,11 +73,16 @@ export const Triangle = styled.div`
 `;
 
 export const NodeName = styled.div`
-  font-size: ${rem(32)};
+  font-size: ${rem(22)};
   margin-bottom: ${rem(6)};
   font-weight: 600;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   @media (min-width: ${rem(media.sm)}) {
     font-weight: 500;
+    font-size: ${rem(32)};
   }
 `;
 

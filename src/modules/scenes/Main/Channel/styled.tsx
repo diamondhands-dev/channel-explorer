@@ -11,6 +11,7 @@ export const ChannelContainer = styled.div`
   width: 100%;
   max-width: ${rem(1360)};
   border-bottom: ${theme.styles.borderGray};
+  box-shadow: ${theme.styles.boxShadowRowBottom};
   @media (min-width: ${rem(media.sm)}) {
     padding: ${rem(32)} ${rem(28)};
   }
@@ -26,10 +27,10 @@ export const ChannelInfo = styled.div`
 export const ChannelName = styled.div`
   font-size: ${rem(22)};
   margin-bottom: ${rem(10)};
-  @media (min-width: ${rem(media.sm)}) {
-    margin-bottom: ${rem(8)};
-    font-size: ${rem(28)};
-  }
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 export const Row = styled.div`

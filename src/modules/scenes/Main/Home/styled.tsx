@@ -6,7 +6,7 @@ import { StylingConstants } from '../../../styles';
 const { media } = StylingConstants;
 
 export const HomeBrowserContainer = styled.div`
-  padding: ${rem(20)} ${rem(20)};
+  padding: ${rem(20)} ${rem(14)};
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -6,7 +6,7 @@ import { StylingConstants, theme } from '../../../styles';
 const { media } = StylingConstants;
 
 export const CapacityContainer = styled.div`
-  padding: ${rem(12)} ${rem(12)};
+  padding: ${rem(12)} ${rem(10)};
   width: 100%;
   border: ${theme.styles.borderDarkGray};
   box-sizing: border-box;
@@ -33,6 +33,7 @@ export const RowCapacity = styled(Row)`
 export const ColumnFeeRemote = styled.div`
   display: flex;
   flex-direction: column;
+
   @media (min-width: ${rem(media.lg)}) {
     flex-direction: row;
     justify-content: space-between;
@@ -55,9 +56,20 @@ export const TextRemote = styled.span`
   margin-bottom: ${rem(2)};
   font-weight: 600;
   color: ${theme.colors.orange};
+  max-width: ${rem(120)};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  @media (min-width: ${rem(media.xs)}) {
+    max-width: ${rem(150)};
+  }
   @media (min-width: ${rem(media.sm)}) {
+    max-width: ${rem(210)};
     font-size: ${rem(16)};
     margin-bottom: ${rem(0)};
+  }
+  @media (min-width: ${rem(media.xl)}) {
+    max-width: ${rem(300)};
   }
 `;
 
@@ -227,10 +239,7 @@ export const ToolTipBase = styled.div`
   padding: ${rem(4)} ${rem(8)};
 `;
 
-export const ToolTipRemote = styled(ToolTipBase)`
-  /* background: #fff7e3; */
-  /* box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25); */
-`;
+export const ToolTipRemote = styled(ToolTipBase)``;
 
 export const RowToolTip = styled.div`
   display: flex;

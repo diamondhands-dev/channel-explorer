@@ -66,6 +66,7 @@ export const ColumnSearch = styled.div`
 export const ChannelHead = styled.div`
   border-bottom: ${theme.styles.borderGray};
   padding-bottom: ${rem(70)};
+  box-shadow: ${theme.styles.boxShadowRowBottom};
   @media (min-width: ${rem(media.sm)}) {
     padding-bottom: ${rem(12)};
     height: auto;
