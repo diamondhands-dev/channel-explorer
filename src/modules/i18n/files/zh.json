@@ -1,3 +1,22 @@
 {
-  "test": "测试"
+  "header.bitcoin-lightning": " 闪电比特币",
+  "header.channel-explorer": "通道浏览器",
+  "toast.copied.pk": "複制了公钥!",
+  "toast.copied.invoice": "複制了invoice!",
+  "node": "节点",
+  "public-key": "公钥 :",
+  "channels": "通道",
+  "capacity": "容量",
+  "placeholder.search": "搜索Channel名或公钥",
+  "channel-id": "通道 ID :",
+  "channel-information": "Channel Information",
+  "fee": "手续费",
+  "total-capacity": "总容量 :",
+  "max-receive": "[Max Receive]",
+  "max-send": "[Max Send]",
+  "view-button": "⚡️ 查看容量比率",
+  "amount-to-pay": "支付 :",
+  "invoice": "Invoice",
+  "base-fee": "Base Fee : ",
+  "fee-rate": "Fee Rate : "
 }

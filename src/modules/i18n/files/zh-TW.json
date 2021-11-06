@@ -1,3 +1,22 @@
 {
-  "test": "測試"
+  "header.bitcoin-lightning": " 閃電比特幣",
+  "header.channel-explorer": "通道瀏覽器",
+  "toast.copied.pk": "複製了公鑰!",
+  "toast.copied.invoice": "複製了invoice!",
+  "node": "節點",
+  "public-key": "公鑰 :",
+  "channels": "通道",
+  "capacity": "容量",
+  "placeholder.search": "搜索Channel名或公鑰",
+  "channel-id": "通道 ID :",
+  "channel-information": "Channel Information",
+  "fee": "手續費",
+  "total-capacity": "總容量 :",
+  "max-receive": "[Max Receive]",
+  "max-send": "[Max Send]",
+  "view-button": "⚡️ 查看容量比率",
+  "amount-to-pay": "支付 :",
+  "invoice": "Invoice",
+  "base-fee": "Base Fee : ",
+  "fee-rate": "Fee Rate : "
 }

@@ -168,6 +168,7 @@ export const ButtonView = styled.div`
   color: ${theme.colors.white};
   font-weight: bold;
   cursor: pointer;
+  min-width: ${rem(250)};
   :hover {
     background: ${theme.colors.buttonCapacityBgHover};
     box-shadow: ${theme.styles.boxShadowButtonCapacityHover};
