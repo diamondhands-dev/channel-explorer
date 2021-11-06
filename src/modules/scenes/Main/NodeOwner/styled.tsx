@@ -44,9 +44,6 @@ export const RowTag = styled.div`
 
 export const ColumnSwitch = styled.div`
   padding-top: ${rem(10)};
-  @media (min-width: ${rem(media.sm)}) {
-    padding-top: ${rem(0)};
-  }
 `;
 
 export const TagNode = styled.div`

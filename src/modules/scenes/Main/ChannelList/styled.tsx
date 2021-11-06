@@ -42,23 +42,24 @@ export const Triangle = styled.div`
 
 export const RowTag = styled.div`
   position: relative;
-  height: ${rem(34)};
+  height: ${rem(20)};
   display: flex;
   flex-direction: column;
   @media (min-width: ${rem(media.sm)}) {
+    height: ${rem(34)};
     flex-direction: row;
     justify-content: space-between;
   }
 `;
 
 export const ColumnSearch = styled.div`
-  margin-top: ${rem(50)};
+  margin-top: ${rem(40)};
   padding-left: ${rem(16)};
   padding-right: ${rem(16)};
   @media (min-width: ${rem(media.sm)}) {
     padding-right: ${rem(0)};
     margin-top: ${rem(0)};
-    padding-top: ${rem(8)};
+    padding-top: ${rem(14)};
     margin-right: ${rem(28)};
   }
 `;
@@ -68,7 +69,7 @@ export const ChannelHead = styled.div`
   padding-bottom: ${rem(70)};
   box-shadow: ${theme.styles.boxShadowRowBottom};
   @media (min-width: ${rem(media.sm)}) {
-    padding-bottom: ${rem(12)};
+    padding-bottom: ${rem(24)};
     height: auto;
   }
 `;

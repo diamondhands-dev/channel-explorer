@@ -28,7 +28,8 @@ export const Switcher = styled.div`
 
 const Unit = styled.div<isActivateProps>`
   padding: ${rem(4)} 0;
-  box-shadow: ${({ isActivate }) => isActivate && '1px 1px 2px rgba(0, 0, 0, 0.46)'};
+  box-shadow: ${({ isActivate }) =>
+    isActivate ? '1px 1px 2px rgba(0, 0, 0, 0.46)' : 'inset 0px 1px 2px rgba(0, 0, 0, 0.59)'};
   background: ${({ isActivate }) => (isActivate ? theme.colors.unitActiveBg : theme.colors.rat)};
   color: ${({ isActivate }) => (isActivate ? theme.colors.teal : theme.colors.darkGray)};
   transition: all 0.5s ease 0s;

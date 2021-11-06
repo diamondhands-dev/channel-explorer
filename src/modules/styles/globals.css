@@ -28,6 +28,20 @@
   font-weight: 400;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('/fonts/Rajdhani/Rajdhani-Bold.ttf');
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('/fonts/Rajdhani/Rajdhani-SemiBold.ttf');
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
 
 html,
 body {
