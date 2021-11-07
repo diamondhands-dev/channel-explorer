@@ -1,6 +1,8 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 
+import { theme } from '../../modules/styles';
+
 import { SearchIcon, SearchInput } from './styled';
 
 export const Search = ({ search, setSearch }) => {
@@ -14,6 +16,7 @@ export const Search = ({ search, setSearch }) => {
         setSearch(evt.target.value);
       }}
       placeholder={formatMessage({ id: 'placeholder.search' })}
+      placeholderColor={theme.colors.placeholderSearch}
       right={<SearchIcon size="country" />}
     />
   );

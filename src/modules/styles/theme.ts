@@ -18,6 +18,7 @@ const colors = {
   teal: '#BFFF07',
   orange: '#FF7A00',
   purple: '#6300FF',
+  placeholderSearch: '#A4A4A4',
   placeholderOrange: '#ffddb0',
   placeholderBar:
     'linear-gradient(270deg, rgba(154, 74, 255, 0.15) 0%, rgba(247, 148, 19, 0.15) 97.48%)',

@@ -162,7 +162,7 @@ export const BoxInside = styled.div`
 `;
 
 export const BoxData = styled.div`
-  border: double 2.5px transparent;
+  border: double 2px transparent;
   border-radius: ${rem(8)};
   background-image: linear-gradient(white, white),
     radial-gradient(circle at top left, #d36bf8, #965bf4);

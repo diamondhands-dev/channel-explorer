@@ -9,9 +9,9 @@
 }
 @font-face {
   font-family: 'Raleway';
-  src: url('/fonts/Raleway/static/Raleway-Bold.ttf');
+  src: url('/fonts/Raleway/static/Raleway-Medium.ttf');
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-display: swap;
 }
 @font-face {
@@ -19,6 +19,13 @@
   src: url('/fonts/Raleway/static/Raleway-SemiBold.ttf');
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('/fonts/Raleway/static/Raleway-Bold.ttf');
+  font-style: normal;
+  font-weight: 700;
   font-display: swap;
 }
 @font-face {
@@ -30,9 +37,9 @@
 }
 @font-face {
   font-family: 'Rajdhani';
-  src: url('/fonts/Rajdhani/Rajdhani-Bold.ttf');
+  src: url('/fonts/Rajdhani/Rajdhani-Medium.ttf');
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-display: swap;
 }
 @font-face {
@@ -40,6 +47,13 @@
   src: url('/fonts/Rajdhani/Rajdhani-SemiBold.ttf');
   font-style: normal;
   font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Rajdhani';
+  src: url('/fonts/Rajdhani/Rajdhani-Bold.ttf');
+  font-style: normal;
+  font-weight: 700;
   font-display: swap;
 }
 

@@ -31,6 +31,10 @@ export const ChannelName = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-weight: 500;
+  @media (min-width: ${rem(media.sm)}) {
+    font-size: ${rem(28)};
+  }
 `;
 
 export const Row = styled.div`

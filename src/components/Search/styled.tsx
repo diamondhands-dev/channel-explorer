@@ -10,6 +10,7 @@ export const SearchInput = styled(TextInput)`
   width: 100%;
   font-size: ${rem(14)};
   height: ${rem(80)};
+
   @media (min-width: ${rem(media.sm)}) {
     width: ${rem(350)};
     padding-left: 0;
@@ -20,8 +21,10 @@ export const SearchInput = styled(TextInput)`
 
   .sc-hzMMVR,
   .iEbboh {
+    border: 1px solid #dadada;
     box-sizing: border-box;
-    box-shadow: inset 0px 0px 1.5px rgba(0, 0, 0, 0.33);
+    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.33);
+    border-radius: 5px;
   }
 
   .iEbboh,
