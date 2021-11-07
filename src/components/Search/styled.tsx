@@ -19,31 +19,17 @@ export const SearchInput = styled(TextInput)`
     font-size: ${rem(16)};
   }
 
-  .sc-hzMMVR,
-  .iEbboh {
-    border: 1px solid #dadada;
-    box-sizing: border-box;
-    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.33);
-    border-radius: 5px;
-  }
-
-  .iEbboh,
-  .kErWcB,
-  .sc-dWddBi,
-  .ctoQuI,
-  .sc-dWddBi {
-    .fzAUAg {
-      color: ${theme.colors.placeholderOrange};
+  .icDcXj,
+  .ewJpyQ {
+    .fzAUAg,
+    .bDcXcY {
+      color: ${theme.styles.orange};
     }
   }
 
   .fzAUAg,
   .sc-dWddBi {
-    color: ${theme.styles.orange};
-  }
-  .hnDFEq,
-  .ebaotP {
-    border-color: ${theme.styles.orange};
+    color: ${theme.colors.placeholderOrange};
   }
 `;
 

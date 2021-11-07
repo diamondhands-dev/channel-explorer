@@ -2071,10 +2071,10 @@ combined-stream@^1.0.8:
   dependencies:
     delayed-stream "~1.0.0"
 
-comet-ui-kit@^0.1.3:
-  version "0.1.3"
-  resolved "https://registry.yarnpkg.com/comet-ui-kit/-/comet-ui-kit-0.1.3.tgz#d6b984397ac0418a346f035316f6f9543ecba8b2"
-  integrity sha512-RZuOCbvTVjqqEi0E6ioFnlNPFozDbU5NFNBDqDOIV/mb1m4MuLujkubRlDM8kZg6MXi2BxmQ4VcS8NzKyZQmiw==
+comet-ui-kit@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/comet-ui-kit/-/comet-ui-kit-0.1.6.tgz#18d733d7a26f59586e97c448bdc7abd09b154ccd"
+  integrity sha512-3xOHDedFM0536r/WyfppyWs3yqlw7822L2fLyLM5xOpc3DRINnV4ipQQrbr+ZIPo1QVStkB3JZ+r8JDLFQzufA==
   dependencies:
     "@tippyjs/react" "^4.2.0"
     crypto-js "^4.0.0"

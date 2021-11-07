@@ -17,6 +17,7 @@ export const Search = ({ search, setSearch }) => {
       }}
       placeholder={formatMessage({ id: 'placeholder.search' })}
       placeholderColor={theme.colors.placeholderSearch}
+      borderActiveColor={theme.colors.orange}
       right={<SearchIcon size="country" />}
     />
   );
