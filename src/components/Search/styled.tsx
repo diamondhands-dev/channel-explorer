@@ -17,18 +17,21 @@ export const SearchInput = styled(TextInput)`
     padding-right: 0;
     margin-top: ${rem(-10)};
     font-size: ${rem(16)};
+    transition: all 0.2s ease 0s;
   }
 
   .icDcXj,
   .ewJpyQ {
     .fzAUAg,
     .bDcXcY {
+      transition: all 0.2s ease 0s;
       color: ${theme.styles.orange};
     }
   }
 
   .fzAUAg,
   .sc-dWddBi {
+    transition: all 0.2s ease 0s;
     color: ${theme.colors.placeholderOrange};
   }
 `;
