@@ -8,7 +8,7 @@ export enum PATH {
   SELF = '/self',
   CHANNELS = '/channels',
   INVOICE = '/invoice',
-  POOL = '/checkInvoice',
+  CHECK_INVOICE = '/checkInvoice',
 }
 
 export enum LOCAL_STORAGE {

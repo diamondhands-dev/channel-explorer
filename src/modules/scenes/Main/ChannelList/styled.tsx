@@ -13,7 +13,6 @@ export const ChannelListContainer = styled.div`
   padding-bottom: ${rem(16)};
   @media (min-width: ${rem(media.sm)}) {
     padding-bottom: ${rem(28)};
-    padding-top: ${rem(10)};
   }
 `;
 
@@ -69,6 +68,7 @@ export const ChannelHead = styled.div`
   padding-bottom: ${rem(70)};
   box-shadow: ${theme.styles.boxShadowRowBottom};
   @media (min-width: ${rem(media.sm)}) {
+    padding-top: ${rem(10)};
     padding-bottom: ${rem(24)};
     height: auto;
   }
