@@ -64,6 +64,10 @@ export const ColumnSearch = styled.div`
 `;
 
 export const ChannelHead = styled.div`
+  border-top-left-radius: ${rem(10)};
+  border-top-right-radius: ${rem(10)};
+  z-index: 10;
+  background: ${theme.colors.white};
   border-bottom: ${theme.styles.borderGray};
   padding-bottom: ${rem(70)};
   box-shadow: ${theme.styles.boxShadowRowBottom};
@@ -72,4 +76,10 @@ export const ChannelHead = styled.div`
     padding-bottom: ${rem(24)};
     height: auto;
   }
+`;
+
+export const TextWaiting = styled.div`
+  text-align: center;
+  font-size: ${rem(24)};
+  padding-top: ${rem(24)};
 `;

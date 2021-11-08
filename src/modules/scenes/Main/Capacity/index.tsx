@@ -6,7 +6,7 @@ import { FormattedMessage, FormattedNumber } from 'react-intl';
 
 import pointingOrange from '../../../../../public/icons/pointing-orange.svg';
 import pointingPurple from '../../../../../public/icons/pointing-purple.svg';
-import { TUnit } from '../../../channel';
+import { getInvoice, TUnit } from '../../../channel';
 import { btcOrSats } from '../../../helper';
 import { MobileToM, SizeM } from '../../Common';
 import { Payment } from '../Payment';
@@ -45,26 +45,37 @@ export const Capacity = ({
   unit,
   nodeOwner,
   channelName,
+  capacity,
+  remoteBaseFee,
+  localBaseFee,
+  remoteFeeRate,
+  localFeeRate,
+  channelId,
 }: {
   unit: TUnit;
   nodeOwner: string;
+  channelId: string;
   channelName: string;
+  capacity: number;
+  remoteBaseFee: number;
+  localBaseFee: number;
+  remoteFeeRate: number;
+  localFeeRate: number;
 }) => {
+  // Todo
   const [isPaid, setIsPaid] = useState<Boolean>(false);
-  const [isViewPayment, setIsViewPayment] = useState<Boolean>(false);
 
-  const ttlCapacity = btcOrSats({ sats: 10000000000, unit });
+  const [isViewPayment, setIsViewPayment] = useState<Boolean>(false);
+  const [invoice, setInvoice] = useState<string>('');
+  const ttlCapacity = btcOrSats({ sats: capacity, unit });
   const value = '---------';
   const valueRemote = value;
   const valueLocal = value;
 
   const price = btcOrSats({ sats: 1000, unit });
-  const invoice = 'lnbc1500n1psh6pzhpp5xq3qsat4yfqc6vak0xjsmpgjsmpg44esqhffrz8';
 
-  const remoteBaseFee = btcOrSats({ sats: 1000, unit });
-  const localBaseFee = btcOrSats({ sats: 1000, unit });
-  const remoteFeeRate = 23;
-  const localFeeRate = 77;
+  const textRemoteBaseFee = btcOrSats({ sats: remoteBaseFee, unit });
+  const textLocalBaseFee = btcOrSats({ sats: localBaseFee, unit });
 
   const columnTtlCapacity = (
     <TtlCapacity>
@@ -81,7 +92,15 @@ export const Capacity = ({
   );
 
   const viewButton = !isViewPayment && (
-    <ButtonView onClick={() => setIsViewPayment(true)}>
+    <ButtonView
+      onMouseEnter={() => {
+        (async () => {
+          const result = await getInvoice({ channelId });
+          setInvoice(result);
+        })();
+      }}
+      onClick={() => setIsViewPayment(true)}
+    >
       <FormattedMessage id="view-button" />
     </ButtonView>
   );
@@ -99,7 +118,7 @@ export const Capacity = ({
                     <FormattedMessage id="base-fee" />
                   </div>
                   <TooltipAmount>
-                    <FormattedNumber value={remoteBaseFee} maximumSignificantDigits={8} />
+                    <FormattedNumber value={textRemoteBaseFee} maximumSignificantDigits={8} />
                   </TooltipAmount>
                   <div>{unit}</div>
                 </RowToolTip>
@@ -131,7 +150,7 @@ export const Capacity = ({
                     <FormattedMessage id="base-fee" />
                   </div>
                   <TooltipAmount>
-                    <FormattedNumber value={localBaseFee} maximumSignificantDigits={8} />
+                    <FormattedNumber value={textLocalBaseFee} maximumSignificantDigits={8} />
                   </TooltipAmount>
                   <div>{unit}</div>
                 </RowToolTip>
@@ -201,7 +220,7 @@ export const Capacity = ({
       <MobileToM>
         <RowButton>{viewButton}</RowButton>
       </MobileToM>
-      <Collapse isOpen={isViewPayment}>
+      <Collapse isOpen={isViewPayment && invoice !== ''}>
         <RowPayment>
           <Payment unit={unit} price={price} invoice={invoice} />
         </RowPayment>

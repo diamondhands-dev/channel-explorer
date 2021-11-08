@@ -7,7 +7,7 @@ import { rem } from 'polished';
 
 import plus from '../../../../../public/icons/plus.svg';
 import minus from '../../../../../public/icons/minus.svg';
-import { TUnit } from '../../../channel';
+import { IChannel, TUnit } from '../../../channel';
 import { Capacity } from '../Capacity';
 import { StylingConstants } from '../../../styles';
 
@@ -23,12 +23,34 @@ import {
   ToggleInformation,
 } from './styled';
 
-export const Channel = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: string }) => {
+export const Channel = ({
+  unit,
+  nodeOwner,
+  channel,
+}: {
+  unit: TUnit;
+  nodeOwner: string;
+  channel: IChannel;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const channelName = 'CoinPayments';
-  const channelId = '745420505213435904';
-  const pk = '03afa7a8196dbca763ee6f9a34b634a7adc03f154e5d6979fe654db5606b5fb2b1';
+  const {
+    alias,
+    channelId,
+    node2PubKey,
+    capacity,
+    node1BaseFee,
+    node1FeeRate,
+    node2BaseFee,
+    node2FeeRate,
+  } = channel;
+
+  const channelName = alias;
+  const pk = node2PubKey;
   const url = `https://amboss.space/node/${pk}`;
+  const localBaseFee = node1BaseFee;
+  const remoteBaseFee = node2BaseFee;
+  const localFeeRate = node1FeeRate;
+  const remoteFeeRate = node2FeeRate;
 
   const { media } = StylingConstants;
   const sm = useMatchMedia({ query: `(min-width: ${rem(media.sm)})` });
@@ -38,7 +60,7 @@ export const Channel = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: string })
   }, [sm, isOpen]);
 
   return (
-    <ChannelContainer>
+    <ChannelContainer key={channel.node2PubKey}>
       <ChannelInfo>
         <ChannelName>{channelName}</ChannelName>
         <ToggleInformation onClick={() => setIsOpen(!isOpen)}>
@@ -65,7 +87,17 @@ export const Channel = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: string })
           </Row>
         </Collapse>
       </ChannelInfo>
-      <Capacity unit={unit} nodeOwner={nodeOwner} channelName={channelName} />
+      <Capacity
+        unit={unit}
+        channelId={channelId}
+        nodeOwner={nodeOwner}
+        channelName={channelName}
+        capacity={capacity}
+        remoteBaseFee={remoteBaseFee}
+        localBaseFee={localBaseFee}
+        localFeeRate={localFeeRate}
+        remoteFeeRate={remoteFeeRate}
+      />
     </ChannelContainer>
   );
 };

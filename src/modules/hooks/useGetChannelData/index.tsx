@@ -28,7 +28,6 @@ export const useGetChannelData = () => {
   useEffect(() => {
     getData();
   }, [getData]);
-  console.log('channels', channels);
 
   return useMemo(() => ({ channels, isLoading }), [channels, isLoading]);
 };

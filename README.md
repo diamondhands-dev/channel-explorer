@@ -14,6 +14,14 @@ $ yarn -vs
 v1.22.10
 ```
 
+## Configuration
+
+Set .env file
+
+```
+NEXT_PUBLIC_BACKEND_ENDPOINT="your endpoint"
+```
+
 ## How To Use
 
 ```bash
