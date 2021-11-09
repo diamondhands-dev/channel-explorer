@@ -23,6 +23,10 @@ export const NodeOwnerContainer = styled.div`
   .count-up {
     font-family: 'Rajdhani';
   }
+  .count-up-placeholder {
+    margin-top: ${rem(2)};
+    font-family: 'Rajdhani';
+  }
 `;
 
 export const Box = styled.div`

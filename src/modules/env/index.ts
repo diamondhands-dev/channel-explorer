@@ -7,7 +7,7 @@ export const BACKEND_ENDPOINT = process.env.NEXT_PUBLIC_BACKEND_ENDPOINT;
 export enum PATH {
   SELF = '/self',
   CHANNELS = '/channels',
-  // /invoice/channelId -> bolt11
+  SEARCH = '/search',
   INVOICE = '/invoice',
   CHECK_INVOICE = '/checkInvoice',
 }

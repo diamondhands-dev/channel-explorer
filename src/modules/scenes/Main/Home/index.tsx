@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { TUnit } from '../../../channel';
 import { LOCAL_STORAGE } from '../../../env';
 import { btcOrSats } from '../../../helper';
+import { useGetNodeData } from '../../../hooks';
 import { ChannelList } from '../ChannelList';
 import { NodeOwner } from '../NodeOwner';
 
@@ -18,10 +19,12 @@ export const Home = () => {
     }
   }, [localStorage, storedUnit, unit]);
 
-  const nodeOwner = 'DiamondHands';
-  const pk = '035b1ff29e8db1ba8f2a4f4f95db239b54069cb949b8cde329418e2a83da4f1b30';
-  const channels = 338;
-  const capacity = btcOrSats({ sats: Number('1583473921'), unit });
+  const {
+    nodeInfo: { alias, pk, channels, capacity },
+  } = useGetNodeData();
+
+  const nodeOwner = alias;
+  const formattedCapacity = btcOrSats({ sats: capacity, unit });
 
   return (
     <>
@@ -30,7 +33,7 @@ export const Home = () => {
           nodeOwner={nodeOwner}
           pk={pk}
           channels={channels}
-          capacity={capacity}
+          capacity={formattedCapacity}
           unit={unit}
           setUnit={setUnit}
         />

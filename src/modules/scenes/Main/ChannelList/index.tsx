@@ -24,10 +24,9 @@ import {
 } from './styled';
 
 export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: string }) => {
-  const { channels, isLoading } = useGetChannelData();
   const [search, setSearch] = useState('');
-  // Todo: search
   const [value] = useDebounce(search, 1000);
+  const { channels, isLoading, setIsLoading, setChannels } = useGetChannelData(value);
 
   const tag = (
     <TagChannel>
@@ -47,7 +46,13 @@ export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: strin
               <RowTag>
                 <div>{tag}</div>
                 <ColumnSearch>
-                  <Search search={search} setSearch={setSearch} />
+                  <Search
+                    search={search}
+                    setSearch={setSearch}
+                    setIsLoading={setIsLoading}
+                    setChannels={setChannels}
+                    channels={channels}
+                  />
                 </ColumnSearch>
               </RowTag>
             </ChannelHead>

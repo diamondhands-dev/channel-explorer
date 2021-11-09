@@ -6,14 +6,14 @@ import { objToArray } from '../../common';
 import { BACKEND_ENDPOINT, PATH } from '../../env';
 import { logger } from '../../logger';
 
-export const useGetChannelData = () => {
+export const useGetChannelData = (search: string) => {
   const [channels, setChannels] = useState<IChannel[] | []>([]);
   const [isLoading, setIsLoading] = useState<Boolean>(true);
 
   const getData = useCallback(async () => {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
-      const url = BACKEND_ENDPOINT + PATH.CHANNELS;
+      const url = BACKEND_ENDPOINT + PATH.SEARCH + '/' + search;
       const result = await axios.get(url);
       const formattedData = objToArray(result.data);
       setChannels(formattedData);
@@ -23,11 +23,14 @@ export const useGetChannelData = () => {
     } finally {
       setIsLoading(false);
     }
-  }, []);
+  }, [search]);
 
   useEffect(() => {
     getData();
   }, [getData]);
 
-  return useMemo(() => ({ channels, isLoading }), [channels, isLoading]);
+  return useMemo(
+    () => ({ channels, isLoading, setIsLoading, setChannels }),
+    [channels, isLoading, setIsLoading, setChannels],
+  );
 };
