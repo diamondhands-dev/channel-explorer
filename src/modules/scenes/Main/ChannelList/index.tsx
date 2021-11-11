@@ -1,10 +1,15 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
+// import AutoSizer from 'react-virtualized-auto-sizer';
+// import { FixedSizeList as List } from 'react-window';
+// import InfiniteLoader from 'react-window-infinite-loader';
+import { StickyContainer, Sticky } from 'react-sticky';
+import { useDebounce } from 'use-debounce';
 
 import triangle from '../../../../../public/icons/triangle-orange.svg';
 import { Search } from '../../../../components/Search';
-import { TUnit } from '../../../channel';
+import { IChannel, TUnit } from '../../../channel';
 import { useGetChannelData } from '../../../hooks';
 import { Channel } from '../Channel';
 
@@ -15,11 +20,14 @@ import {
   RowTag,
   TagChannel,
   Triangle,
+  TextWaiting,
 } from './styled';
 
 export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: string }) => {
-  const { channels, isLoading } = useGetChannelData();
   const [search, setSearch] = useState('');
+  const [value] = useDebounce(search, 1000);
+  const { channels, isLoading, setIsLoading, setChannels } = useGetChannelData(value);
+
   const tag = (
     <TagChannel>
       <FormattedMessage id="channels" />
@@ -31,31 +39,32 @@ export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: strin
 
   return (
     <ChannelListContainer>
-      <ChannelHead>
-        <RowTag>
-          <div>{tag}</div>
-          <ColumnSearch>
-            <Search search={search} setSearch={setSearch} />
-          </ColumnSearch>
-        </RowTag>
-      </ChannelHead>
-      <Channel unit={unit} nodeOwner={nodeOwner} />
-      <Channel unit={unit} nodeOwner={nodeOwner} />
+      <StickyContainer>
+        <Sticky>
+          {({ style }) => (
+            <ChannelHead style={style}>
+              <RowTag>
+                <div>{tag}</div>
+                <ColumnSearch>
+                  <Search
+                    search={search}
+                    setSearch={setSearch}
+                    setIsLoading={setIsLoading}
+                    setChannels={setChannels}
+                    channels={channels}
+                  />
+                </ColumnSearch>
+              </RowTag>
+            </ChannelHead>
+          )}
+        </Sticky>
+        {isLoading && <TextWaiting>Loading...</TextWaiting>}
+        {!channels && !isLoading && <TextWaiting>No data returned from backend API</TextWaiting>}
+        {channels &&
+          channels.map((channel: IChannel) => (
+            <Channel unit={unit} nodeOwner={nodeOwner} channel={channel} key={channel.channelId} />
+          ))}
+      </StickyContainer>
     </ChannelListContainer>
   );
 };
-
-// return (
-//   <ChannelListContainer>
-//     <h3>Channels</h3>
-//     {isLoading ? (
-//       <h3>Loading...</h3>
-//     ) : channels ? (
-//       channels.map((channel: IChannel, i: number) => (
-//         <Node i={i} channel={channel} key={channel.channelId} />
-//       ))
-//     ) : (
-//       <h3>No data returned from backend API</h3>
-//     )}
-//   </ChannelListContainer>
-// );
