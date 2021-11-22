@@ -1,6 +1,5 @@
 {
-  "header.bitcoin-lightning": "Bitcoin Lightning",
-  "header.channel-explorer": "Channel Explorer",
+  "header.channel-explorer": "Lightning Channel Explorer",
   "toast.copied.pk": "Copied public key!",
   "toast.copied.invoice": "Copied invoice!",
   "node": "Node",

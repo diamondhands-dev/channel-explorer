@@ -17,9 +17,13 @@ export const CapacityContainer = styled.div`
 `;
 
 export const Row = styled.div`
-  display: flex;
-  justify-content: space-between;
   align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  @media (min-width: ${rem(media.md)}) {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: ${rem(0)};
+  }
 `;
 
 export const RowCapacity = styled(Row)`
@@ -36,7 +40,6 @@ export const ColumnFeeRemote = styled.div`
 
   @media (min-width: ${rem(media.lg)}) {
     flex-direction: row;
-    justify-content: space-between;
     align-items: center;
     column-gap: ${rem(14)};
   }
@@ -45,6 +48,7 @@ export const ColumnFeeRemote = styled.div`
 export const ColumnFeeLocal = styled(ColumnFeeRemote)`
   flex-direction: column-reverse;
   align-items: flex-end;
+  justify-self: flex-end;
   @media (min-width: ${rem(media.lg)}) {
     flex-direction: row;
     align-items: center;
@@ -108,6 +112,7 @@ export const TtlCapacity = styled.div`
   @media (min-width: ${rem(media.lg)}) {
     font-size: ${rem(16)};
     flex-flow: row;
+    justify-content: center;
   }
 `;
 
@@ -118,7 +123,7 @@ export const ColumnCapacityValue = styled(TtlCapacity)`
 export const TextCapacityValue = styled.span`
   font-family: 'Rajdhani';
   font-weight: 600;
-  font-size: ${rem(20)};
+  font-size: ${rem(22)};
   padding-bottom: ${rem(2)};
   @media (min-width: ${rem(media.lg)}) {
     font-size: ${rem(24)};
