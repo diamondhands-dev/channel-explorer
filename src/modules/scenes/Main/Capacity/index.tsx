@@ -34,6 +34,7 @@ import {
   RowPayment,
   RowToolTip,
   TextCapacity,
+  TextCapacityPercentage,
   TextCapacityValue,
   TextLocal,
   TextRemote,
@@ -42,7 +43,6 @@ import {
   ToolTipRemote,
   Triangle,
   TtlCapacity,
-  TextCapacityPercentage,
 } from './styled';
 
 export const Capacity = ({
@@ -98,9 +98,6 @@ export const Capacity = ({
   );
 
   const price = btcOrSats({ sats: payPrice, unit });
-
-  const textRemoteBaseFee = btcOrSats({ sats: remoteBaseFee, unit });
-  const textLocalBaseFee = btcOrSats({ sats: localBaseFee, unit });
 
   const remotePercentage =
     Number(isPaid ? capacityDetails.remoteBalance / calculatedTtlCapacity : 0) * 100;
@@ -168,16 +165,20 @@ export const Capacity = ({
                     <FormattedMessage id="base-fee" />
                   </div>
                   <TooltipAmount>
-                    <FormattedNumber value={textRemoteBaseFee} maximumSignificantDigits={8} />
+                    <FormattedNumber value={remoteBaseFee} maximumSignificantDigits={8} />
                   </TooltipAmount>
-                  <div>{unit}</div>
+                  <div>
+                    <FormattedMessage id="msat" />
+                  </div>
                 </RowToolTip>
                 <RowToolTip>
                   <div>
                     <FormattedMessage id="fee-rate" />
                   </div>
                   <TooltipAmount>{remoteFeeRate}</TooltipAmount>
-                  <div>%</div>
+                  <div>
+                    <FormattedMessage id="ppm" />
+                  </div>
                 </RowToolTip>
               </ToolTipRemote>
             </Tooltip.Content>
@@ -200,16 +201,20 @@ export const Capacity = ({
                     <FormattedMessage id="base-fee" />
                   </div>
                   <TooltipAmount>
-                    <FormattedNumber value={textLocalBaseFee} maximumSignificantDigits={8} />
+                    <FormattedNumber value={localBaseFee} maximumSignificantDigits={8} />
                   </TooltipAmount>
-                  <div>{unit}</div>
+                  <div>
+                    <FormattedMessage id="msat" />
+                  </div>
                 </RowToolTip>
                 <RowToolTip>
                   <div>
                     <FormattedMessage id="fee-rate" />
                   </div>
                   <TooltipAmount>{localFeeRate}</TooltipAmount>
-                  <div>%</div>
+                  <div>
+                    <FormattedMessage id="ppm" />
+                  </div>
                 </RowToolTip>
               </ToolTipRemote>
             </Tooltip.Content>
@@ -248,7 +253,7 @@ export const Capacity = ({
               <FormattedMessage
                 id="capacity-percent"
                 values={{
-                  value: <FormattedNumber value={remotePercentage} maximumSignificantDigits={1} />,
+                  value: <FormattedNumber value={remotePercentage} maximumSignificantDigits={2} />,
                 }}
               />
             )}
@@ -271,7 +276,7 @@ export const Capacity = ({
               <FormattedMessage
                 id="capacity-percent"
                 values={{
-                  value: <FormattedNumber value={localPercentage} maximumSignificantDigits={1} />,
+                  value: <FormattedNumber value={localPercentage} maximumSignificantDigits={2} />,
                 }}
               />
             )}
@@ -290,7 +295,7 @@ export const Capacity = ({
       <MobileToM>
         <RowButton>{viewButton}</RowButton>
       </MobileToM>
-      <Collapse isOpen={isViewPayment && invoice !== ''}>
+      <Collapse isOpen={isViewPayment && invoice !== '' && !isPaid}>
         <RowPayment>
           <Payment unit={unit} price={price} invoice={invoice} />
         </RowPayment>

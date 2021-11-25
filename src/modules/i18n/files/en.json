@@ -18,5 +18,7 @@
   "invoice": "Invoice",
   "base-fee": "Base Fee : ",
   "fee-rate": "Fee Rate : ",
-  "capacity-percent": "( {value}% )"
+  "capacity-percent": "( {value}% )",
+  "ppm": "ppm",
+  "msat": "msat"
 }
