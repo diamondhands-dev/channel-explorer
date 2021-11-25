@@ -221,17 +221,26 @@ export const CapacityValue = styled.div`
   display: flex;
   align-items: center;
   column-gap: ${rem(4)};
-  font-size: ${rem(16)};
+  font-size: ${rem(12)};
+  @media (min-width: ${rem(media.xs)}) {
+    font-size: ${rem(16)};
+  }
 `;
 
 export const TextValueAmount = styled.div`
   font-weight: 600;
+  font-family: 'Rajdhani';
   @media (min-width: ${rem(media.sm)}) {
     font-size: ${rem(20)};
   }
   @media (min-width: ${rem(media.lg)}) {
     font-size: ${rem(24)};
   }
+`;
+
+export const TextCapacityPercentage = styled.div`
+  font-family: 'Rajdhani';
+  font-weight: 600;
 `;
 
 export const RowPayment = styled.div`

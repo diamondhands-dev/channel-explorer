@@ -17,5 +17,6 @@
   "amount-to-pay": "Amount to pay :",
   "invoice": "Invoice",
   "base-fee": "Base Fee : ",
-  "fee-rate": "Fee Rate : "
+  "fee-rate": "Fee Rate : ",
+  "capacity-percent": "( {value}% )"
 }
