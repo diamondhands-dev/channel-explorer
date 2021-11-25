@@ -295,7 +295,7 @@ export const Capacity = ({
       <MobileToM>
         <RowButton>{viewButton}</RowButton>
       </MobileToM>
-      <Collapse isOpen={isViewPayment && invoice !== '' && !isPaid}>
+      <Collapse isOpen={isViewPayment && !isPaid}>
         <RowPayment>
           <Payment unit={unit} price={price} invoice={invoice} />
         </RowPayment>

@@ -49,13 +49,16 @@ export const ProvideBy = styled.div`
 `;
 
 export const Title = styled.span`
-  font-size: ${rem(24)};
+  font-size: ${rem(22)};
   font-weight: bold;
   background: ${theme.colors.logo};
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
+  @media (min-width: ${rem(media.sm)}) {
+    font-size: ${rem(24)};
+  }
   @media (min-width: ${rem(media.md)}) {
     font-size: ${rem(30)};
   }
