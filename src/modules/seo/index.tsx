@@ -3,7 +3,7 @@ import React from 'react';
 
 export const SEO = () => {
   const content = 'Lightning Channel Explorer';
-  const title = 'DH Explorer';
+  const title = 'Lightning Channel Explorer';
   const image = 'og.png';
 
   return (
