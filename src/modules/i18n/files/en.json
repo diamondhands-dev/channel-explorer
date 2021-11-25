@@ -1,6 +1,5 @@
 {
-  "header.bitcoin-lightning": "Bitcoin Lightning",
-  "header.channel-explorer": "Channel Explorer",
+  "header.channel-explorer": "Lightning Channel Explorer",
   "toast.copied.pk": "Copied public key!",
   "toast.copied.invoice": "Copied invoice!",
   "node": "Node",
@@ -18,5 +17,6 @@
   "amount-to-pay": "Amount to pay :",
   "invoice": "Invoice",
   "base-fee": "Base Fee : ",
-  "fee-rate": "Fee Rate : "
+  "fee-rate": "Fee Rate : ",
+  "capacity-percent": "( {value}% )"
 }

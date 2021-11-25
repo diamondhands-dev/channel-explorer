@@ -13,7 +13,7 @@ export const Globals = ({ children }: { children: React.ReactNode }) => {
     <CometThemeProvider theme={'light' as any}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>DH Channel Explorer</title>
+        <title>Lightning Channel Explorer</title>
         <link rel="stylesheet" href={COMET_GLOBAL_FONT_HREF} />
 
         <link rel="preload" href="/fonts/Raleway/Raleway.ttf" as="font" crossOrigin="" />

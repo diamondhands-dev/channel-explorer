@@ -1,6 +1,5 @@
 {
-  "header.bitcoin-lightning": " 閃電比特幣",
-  "header.channel-explorer": "通道瀏覽器",
+  "header.channel-explorer": "閃電通道瀏覽器",
   "toast.copied.pk": "複製了公鑰!",
   "toast.copied.invoice": "複製了invoice!",
   "node": "節點",

@@ -4,14 +4,15 @@ import styled from 'styled-components';
 import { StylingConstants, theme } from './../../modules/styles';
 
 const { media } = StylingConstants;
+
 export const HeaderContainer = styled.nav`
   display: flex;
   justify-content: space-between;
-  padding: ${rem(8)} ${rem(20)};
+  padding: ${rem(8)} ${rem(16)};
   background-color: ${theme.colors.headerBg};
   @media (min-width: ${rem(media.sm)}) {
     align-items: center;
-    padding: ${rem(16)} ${rem(42)};
+    padding: ${rem(20)} ${rem(42)};
   }
 `;
 
@@ -57,14 +58,6 @@ export const Title = styled.span`
   -moz-text-fill-color: transparent;
   @media (min-width: ${rem(media.md)}) {
     font-size: ${rem(30)};
-  }
-`;
-
-export const TitleSmall = styled(Title)`
-  font-size: ${rem(14)};
-  font-weight: 600;
-  @media (min-width: ${rem(media.md)}) {
-    font-size: ${rem(14)};
   }
 `;
 
