@@ -34,10 +34,6 @@ export const getInvoice = async ({
     const { data } = await axios.get<{ bolt11: string; paymentHash: string; amount: number }>(url);
     const paymentMonitorUrl = `${BACKEND_ENDPOINT}${PATH.CHECK_INVOICE}/${channelId}/${data.paymentHash}`;
 
-    console.log('channelId', channelId);
-    console.log('paymentHash', data.paymentHash);
-    console.log('paymentMonitorUrl', paymentMonitorUrl);
-
     return { invoice: data.bolt11, paymentMonitorUrl, price: data.amount };
   } catch (error) {
     logger.error(error);
