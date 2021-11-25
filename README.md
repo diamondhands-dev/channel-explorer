@@ -1,8 +1,8 @@
 <p align="center"><img src="public/dh-logo.png" height="250" alt="web3-gateway" /></p>
 
-# DH Explorer
+# Lightning Channel Explorer
 
-A SPA for DH channel explorer<br />
+A SPA for lightning channel explorer<br />
 This is a Next.js project bootstrapped with create-next-app.
 
 ## Environment
