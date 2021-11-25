@@ -66,16 +66,17 @@ export const Capacity = ({
   remoteFeeRate: number;
   localFeeRate: number;
 }) => {
+  // Memo: The amount of localBalance + remoteBalance is slightly different compare with `ttlCapacity` due to bolt11
+  const [calculatedTtlCapacity, setCalculatedTtlCapacity] = useState<number>(0);
+
   const [isPaid, setIsPaid] = useState<Boolean>(false);
   const [checkPaymentUrl, setCheckPaymentUrl] = useState<string>('');
   const [payPrice, setPayPrice] = useState<number>(1000);
   const [capacityDetails, setCapacityDetails] = useState<ICapacityDetail | null>(null);
-
   const [isViewPayment, setIsViewPayment] = useState<Boolean>(false);
   const [invoice, setInvoice] = useState<string>('');
+
   const ttlCapacity = btcOrSats({ sats: capacity, unit });
-  // Memo: The amount of localBalance + remoteBalance is slightly different compare with `ttlCapacity` due to bolt11
-  const [calculatedTtlCapacity, setCalculatedTtlCapacity] = useState<number>(0);
   const value = '---------';
 
   const valueRemote = isPaid ? (
