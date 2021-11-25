@@ -114,7 +114,7 @@ export const Capacity = ({
     (async () => {
       try {
         const { data } = await axios.get<ICapacityDetail>(checkPaymentUrl);
-        if (data.paymentStatus > 0) {
+        if (data.capacity > 0) {
           setCapacityDetails(data);
           setCalculatedTtlCapacity(data.localBalance + data.remoteBalance);
           setIsPaid(true);
