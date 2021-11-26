@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { Tooltip } from 'comet-ui-kit';
+import { Tooltip, useMatchMedia } from 'comet-ui-kit';
 import Image from 'next/image';
+import { rem } from 'polished';
 import React, { useState } from 'react';
 import Collapse from 'react-css-collapse';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
@@ -11,6 +12,7 @@ import { getInvoice, ICapacityDetail, TUnit } from '../../../channel';
 import { btcOrSats } from '../../../helper';
 import { useInterval } from '../../../hooks';
 import { logger } from '../../../logger';
+import { StylingConstants } from '../../../styles';
 import { MobileToM, SizeM } from '../../Common';
 import { Payment } from '../Payment';
 
@@ -104,6 +106,9 @@ export const Capacity = ({
   const localPercentage =
     Number(isPaid ? capacityDetails.localBalance / calculatedTtlCapacity : 0) * 100;
 
+  const { media } = StylingConstants;
+  const lg = useMatchMedia({ query: `(min-width: ${rem(media.lg)})` });
+
   useInterval(() => {
     if (capacityDetails || !checkPaymentUrl) {
       return;
@@ -139,14 +144,24 @@ export const Capacity = ({
   const viewButton = !isViewPayment && (
     <ButtonView
       onMouseEnter={() => {
-        (async () => {
-          const { invoice, paymentMonitorUrl, price } = await getInvoice({ channelId });
-          setPayPrice(price);
-          setInvoice(invoice);
-          setCheckPaymentUrl(paymentMonitorUrl);
-        })();
+        lg &&
+          (async () => {
+            const { invoice, paymentMonitorUrl, price } = await getInvoice({ channelId });
+            setPayPrice(price);
+            setInvoice(invoice);
+            setCheckPaymentUrl(paymentMonitorUrl);
+          })();
       }}
-      onClick={() => setIsViewPayment(true)}
+      onClick={() => {
+        setIsViewPayment(true);
+        !lg &&
+          (async () => {
+            const { invoice, paymentMonitorUrl, price } = await getInvoice({ channelId });
+            setPayPrice(price);
+            setInvoice(invoice);
+            setCheckPaymentUrl(paymentMonitorUrl);
+          })();
+      }}
     >
       <FormattedMessage id="view-button" />
     </ButtonView>
@@ -295,7 +310,7 @@ export const Capacity = ({
       <MobileToM>
         <RowButton>{viewButton}</RowButton>
       </MobileToM>
-      <Collapse isOpen={isViewPayment && !isPaid}>
+      <Collapse isOpen={isViewPayment && !isPaid && invoice !== ''}>
         <RowPayment>
           <Payment unit={unit} price={price} invoice={invoice} />
         </RowPayment>
