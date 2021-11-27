@@ -1,5 +1,5 @@
 import useCopy from '@react-hook/copy';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
 import { QRCode } from 'react-qrcode-logo';
 import { toast } from 'react-toastify';
@@ -38,10 +38,19 @@ export const Payment = ({
     copy();
     toast.success(<FormattedMessage id="toast.copied.invoice" />);
   };
+  const [initialLoading, setInitialLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (invoice) {
+      setTimeout(() => {
+        setInitialLoading(false);
+      }, 500);
+    }
+  }, [invoice]);
 
   return (
     <PaymentContainer>
-      {invoice ? (
+      {invoice && !initialLoading ? (
         <>
           <Price>
             <RowPay>

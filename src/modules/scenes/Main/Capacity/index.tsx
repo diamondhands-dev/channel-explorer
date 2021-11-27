@@ -316,7 +316,11 @@ export const Capacity = ({
       </MobileToM>
       <Collapse isOpen={!isPaid && monitorChannelId === channelId}>
         <RowPayment>
-          <Payment unit={unit} price={price} invoice={invoice} />
+          <Payment
+            unit={unit}
+            price={isFocusedChannelId && price}
+            invoice={isFocusedChannelId && invoice}
+          />
         </RowPayment>
       </Collapse>
     </CapacityContainer>

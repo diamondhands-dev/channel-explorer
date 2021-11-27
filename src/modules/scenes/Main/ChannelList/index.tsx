@@ -6,12 +6,16 @@ import { FormattedMessage } from 'react-intl';
 // import InfiniteLoader from 'react-window-infinite-loader';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { useDebounce } from 'use-debounce';
+import { ScaleLoader } from 'react-spinners';
+import { useMatchMedia } from 'comet-ui-kit';
+import { rem } from 'polished';
 
 import triangle from '../../../../../public/icons/triangle-orange.svg';
 import { Search } from '../../../../components/Search';
 import { IChannel, TUnit } from '../../../channel';
 import { useGetChannelData, RequestInvoiceProvider } from '../../../hooks';
 import { Channel } from '../Channel';
+import { StylingConstants } from '../../../styles';
 
 import {
   ChannelHead,
@@ -21,6 +25,7 @@ import {
   TagChannel,
   Triangle,
   TextWaiting,
+  RowLoader,
 } from './styled';
 
 export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: string }) => {
@@ -43,6 +48,9 @@ export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: strin
     </TagChannel>
   );
 
+  const { media } = StylingConstants;
+  const sm = useMatchMedia({ query: `(min-width: ${rem(media.sm)})` });
+
   return (
     <ChannelListContainer>
       <StickyContainer>
@@ -64,7 +72,14 @@ export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: strin
             </ChannelHead>
           )}
         </Sticky>
-        {isLoading && <TextWaiting>Loading...</TextWaiting>}
+        {isLoading &&
+          (sm ? (
+            <RowLoader>
+              <ScaleLoader margin={3} color="#36D7B7" />
+            </RowLoader>
+          ) : (
+            <TextWaiting>Loading...</TextWaiting>
+          ))}
         {!channels && !isLoading && <TextWaiting>No data returned from backend API</TextWaiting>}
         {channels && (
           <RequestInvoiceProvider value={valueProps}>

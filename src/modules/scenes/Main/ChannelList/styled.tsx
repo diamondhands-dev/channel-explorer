@@ -81,5 +81,13 @@ export const ChannelHead = styled.div`
 export const TextWaiting = styled.div`
   text-align: center;
   font-size: ${rem(24)};
-  padding-top: ${rem(24)};
+  margin-top: ${rem(18)};
+`;
+
+export const RowLoader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: ${rem(24)};
 `;
