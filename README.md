@@ -45,7 +45,3 @@ When you push your branch to remote ones, please run `yarn lint --fix` to comply
 
 When you add a new library, please make sure its license is not
 [GPL](https://en.wikipedia.org/wiki/GNU_General_Public_License). And please use `-D` for @types.
-
-### References
-
-- [Figma](https://www.figma.com/file/YqrvbuqniHxqF6xdvvwnlo/20211029-3_Channel-Explorer?node-id=0%3A1)
