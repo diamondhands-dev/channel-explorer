@@ -32,7 +32,7 @@ export const getInvoice = async ({
   try {
     const url = `${BACKEND_ENDPOINT}${PATH.INVOICE}/${channelId}`;
     const { data } = await axios.get<{ bolt11: string; paymentHash: string; amount: number }>(url);
-    const paymentMonitorUrl = `${BACKEND_ENDPOINT}${PATH.CHECK_INVOICE}/${channelId}/${data.paymentHash}`;
+    const paymentMonitorUrl = `${BACKEND_ENDPOINT}${PATH.CHECK_INVOICE}/${data.paymentHash}`;
 
     return { invoice: data.bolt11, paymentMonitorUrl, price: data.amount };
   } catch (error) {

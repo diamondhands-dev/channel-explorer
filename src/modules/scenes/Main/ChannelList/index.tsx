@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 // import AutoSizer from 'react-virtualized-auto-sizer';
 // import { FixedSizeList as List } from 'react-window';
@@ -10,7 +10,7 @@ import { useDebounce } from 'use-debounce';
 import triangle from '../../../../../public/icons/triangle-orange.svg';
 import { Search } from '../../../../components/Search';
 import { IChannel, TUnit } from '../../../channel';
-import { useGetChannelData } from '../../../hooks';
+import { useGetChannelData, RequestInvoiceProvider } from '../../../hooks';
 import { Channel } from '../Channel';
 
 import {
@@ -27,6 +27,12 @@ export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: strin
   const [search, setSearch] = useState('');
   const [value] = useDebounce(search, 1000);
   const { channels, isLoading, setIsLoading, setChannels } = useGetChannelData(value);
+  const [monitorChannelId, setMonitorChannelId] = useState<string>(null);
+
+  const valueProps = useMemo(
+    () => ({ monitorChannelId, setMonitorChannelId }),
+    [monitorChannelId, setMonitorChannelId],
+  );
 
   const tag = (
     <TagChannel>
@@ -60,10 +66,18 @@ export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: strin
         </Sticky>
         {isLoading && <TextWaiting>Loading...</TextWaiting>}
         {!channels && !isLoading && <TextWaiting>No data returned from backend API</TextWaiting>}
-        {channels &&
-          channels.map((channel: IChannel) => (
-            <Channel unit={unit} nodeOwner={nodeOwner} channel={channel} key={channel.channelId} />
-          ))}
+        {channels && (
+          <RequestInvoiceProvider value={valueProps}>
+            {channels.map((channel: IChannel) => (
+              <Channel
+                unit={unit}
+                nodeOwner={nodeOwner}
+                channel={channel}
+                key={channel.channelId}
+              />
+            ))}
+          </RequestInvoiceProvider>
+        )}
       </StickyContainer>
     </ChannelListContainer>
   );

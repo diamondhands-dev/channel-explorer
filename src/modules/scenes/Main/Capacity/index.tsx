@@ -1,18 +1,16 @@
 import axios from 'axios';
-import { Tooltip, useMatchMedia } from 'comet-ui-kit';
+import { Tooltip } from 'comet-ui-kit';
 import Image from 'next/image';
-import { rem } from 'polished';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Collapse from 'react-css-collapse';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
 
 import pointingOrange from '../../../../../public/icons/pointing-orange.svg';
 import pointingPurple from '../../../../../public/icons/pointing-purple.svg';
-import { getInvoice, ICapacityDetail, TUnit } from '../../../channel';
+import { ICapacityDetail, TUnit } from '../../../channel';
 import { btcOrSats } from '../../../helper';
-import { useInterval } from '../../../hooks';
+import { useInterval, useRequestInvoice } from '../../../hooks';
 import { logger } from '../../../logger';
-import { StylingConstants } from '../../../styles';
 import { MobileToM, SizeM } from '../../Common';
 import { Payment } from '../Payment';
 
@@ -68,15 +66,22 @@ export const Capacity = ({
   remoteFeeRate: number;
   localFeeRate: number;
 }) => {
+  const {
+    monitorChannelId,
+    invoice,
+    payPrice,
+    updateInvoice,
+    checkPaymentUrl,
+    setMonitorChannelId,
+  } = useRequestInvoice();
+  const isFocusedChannelId = monitorChannelId === channelId;
+
   // Memo: The amount of localBalance + remoteBalance is slightly different compare with `ttlCapacity` due to bolt11
   const [calculatedTtlCapacity, setCalculatedTtlCapacity] = useState<number>(0);
 
   const [isPaid, setIsPaid] = useState<Boolean>(false);
-  const [checkPaymentUrl, setCheckPaymentUrl] = useState<string>('');
-  const [payPrice, setPayPrice] = useState<number>(1000);
   const [capacityDetails, setCapacityDetails] = useState<ICapacityDetail | null>(null);
-  const [isViewPayment, setIsViewPayment] = useState<Boolean>(false);
-  const [invoice, setInvoice] = useState<string>('');
+  const [monitorCount, setMonitorCount] = useState<number>(0);
 
   const ttlCapacity = btcOrSats({ sats: capacity, unit });
   const value = '---------';
@@ -106,11 +111,10 @@ export const Capacity = ({
   const localPercentage =
     Number(isPaid ? capacityDetails.localBalance / calculatedTtlCapacity : 0) * 100;
 
-  const { media } = StylingConstants;
-  const lg = useMatchMedia({ query: `(min-width: ${rem(media.lg)})` });
+  const intervalSecs = 4000;
 
   useInterval(() => {
-    if (capacityDetails || !checkPaymentUrl) {
+    if (!isFocusedChannelId || !checkPaymentUrl || capacityDetails) {
       return;
     }
     (async () => {
@@ -120,12 +124,26 @@ export const Capacity = ({
           setCapacityDetails(data);
           setCalculatedTtlCapacity(data.localBalance + data.remoteBalance);
           setIsPaid(true);
+          setMonitorCount(0);
+        } else {
+          setMonitorCount(monitorCount + 1);
         }
       } catch (error) {
         logger.error(error);
       }
     })();
-  }, 4000);
+  }, intervalSecs);
+
+  useEffect(() => {
+    if (isFocusedChannelId) {
+      const mins = 5;
+      const round = intervalSecs / 1000;
+      const timeoutRound = (mins * 60) / round;
+      if (monitorCount >= timeoutRound && !capacityDetails) {
+        setMonitorChannelId('');
+      }
+    }
+  }, [monitorCount, capacityDetails, setMonitorChannelId, isFocusedChannelId]);
 
   const columnTtlCapacity = (
     <TtlCapacity>
@@ -141,26 +159,12 @@ export const Capacity = ({
     </TtlCapacity>
   );
 
-  const viewButton = !isViewPayment && (
+  const viewButton = !capacityDetails && (
     <ButtonView
-      onMouseEnter={() => {
-        lg &&
-          (async () => {
-            const { invoice, paymentMonitorUrl, price } = await getInvoice({ channelId });
-            setPayPrice(price);
-            setInvoice(invoice);
-            setCheckPaymentUrl(paymentMonitorUrl);
-          })();
-      }}
       onClick={() => {
-        setIsViewPayment(true);
-        !lg &&
-          (async () => {
-            const { invoice, paymentMonitorUrl, price } = await getInvoice({ channelId });
-            setPayPrice(price);
-            setInvoice(invoice);
-            setCheckPaymentUrl(paymentMonitorUrl);
-          })();
+        (async () => {
+          updateInvoice(channelId);
+        })();
       }}
     >
       <FormattedMessage id="view-button" />
@@ -310,7 +314,7 @@ export const Capacity = ({
       <MobileToM>
         <RowButton>{viewButton}</RowButton>
       </MobileToM>
-      <Collapse isOpen={isViewPayment && !isPaid && invoice !== ''}>
+      <Collapse isOpen={!isPaid && monitorChannelId === channelId}>
         <RowPayment>
           <Payment unit={unit} price={price} invoice={invoice} />
         </RowPayment>
