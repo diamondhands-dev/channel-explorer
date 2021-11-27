@@ -3,6 +3,7 @@ import React from 'react';
 import { FormattedMessage, FormattedNumber } from 'react-intl';
 import { QRCode } from 'react-qrcode-logo';
 import { toast } from 'react-toastify';
+import { ScaleLoader } from 'react-spinners';
 
 import { TUnit } from '../../../channel';
 import { theme } from '../../../styles';
@@ -20,6 +21,7 @@ import {
   RowPay,
   TextInvoice,
   ValueInvoice,
+  RowLoader,
 } from './styled';
 
 export const Payment = ({
@@ -39,36 +41,44 @@ export const Payment = ({
 
   return (
     <PaymentContainer>
-      <Price>
-        <RowPay>
-          <Pay>
-            <FormattedMessage id="amount-to-pay" />
-          </Pay>
-          <Amount>
-            <FormattedNumber value={price} maximumSignificantDigits={8} />
-          </Amount>
-          <AmountUnit>{unit}</AmountUnit>
-        </RowPay>
-        <RowInvoice>
-          <TextInvoice>
-            <FormattedMessage id="invoice" />
-          </TextInvoice>
-          <ColumnInvoice onClick={copyInvoice}>
-            <ValueInvoice>{invoice}</ValueInvoice>
-            <IconCopy />
-          </ColumnInvoice>
-        </RowInvoice>
-      </Price>
-      <QR>
-        <QRCode
-          size={170}
-          value={invoice}
-          bgColor="white"
-          eyeRadius={2}
-          fgColor={theme.colors.orange}
-          qrStyle="dots"
-        />
-      </QR>
+      {invoice ? (
+        <>
+          <Price>
+            <RowPay>
+              <Pay>
+                <FormattedMessage id="amount-to-pay" />
+              </Pay>
+              <Amount>
+                <FormattedNumber value={price} maximumSignificantDigits={8} />
+              </Amount>
+              <AmountUnit>{unit}</AmountUnit>
+            </RowPay>
+            <RowInvoice>
+              <TextInvoice>
+                <FormattedMessage id="invoice" />
+              </TextInvoice>
+              <ColumnInvoice onClick={copyInvoice}>
+                <ValueInvoice>{invoice}</ValueInvoice>
+                <IconCopy />
+              </ColumnInvoice>
+            </RowInvoice>
+          </Price>
+          <QR>
+            <QRCode
+              size={170}
+              value={invoice}
+              bgColor="white"
+              eyeRadius={2}
+              fgColor={theme.colors.orange}
+              qrStyle="dots"
+            />
+          </QR>
+        </>
+      ) : (
+        <RowLoader>
+          <ScaleLoader margin={3} color="#36D7B7" />
+        </RowLoader>
+      )}
     </PaymentContainer>
   );
 };

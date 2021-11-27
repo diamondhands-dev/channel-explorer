@@ -115,3 +115,14 @@ export const ValueInvoice = styled.div`
     max-width: ${rem(420)};
   }
 `;
+
+export const RowLoader = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: ${rem(282)};
+  @media (min-width: ${rem(media.md)}) {
+    min-height: ${rem(194)};
+  }
+`;

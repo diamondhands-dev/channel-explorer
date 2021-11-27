@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useCallback, useMemo, useState } from 'react';
+import { createContext, ReactNode, useCallback, useEffect, useMemo, useState } from 'react';
 
 import { getInvoice } from '../../channel';
 
@@ -36,12 +36,20 @@ export const RequestInvoiceProvider = ({
 
   const updateInvoice = useCallback(async (id: string) => {
     if (!id) return;
-    const { invoice, paymentMonitorUrl, price } = await getInvoice({ channelId: id });
     setMonitorChannelId(id);
+    const { invoice, paymentMonitorUrl, price } = await getInvoice({ channelId: id });
     setPayPrice(price);
     setInvoice(invoice);
     setCheckPaymentUrl(paymentMonitorUrl);
   }, []);
+
+  useEffect(() => {
+    if (monitorChannelId) {
+      setPayPrice(0);
+      setInvoice('');
+      setCheckPaymentUrl(null);
+    }
+  }, [monitorChannelId]);
 
   const value = useMemo(
     () => ({

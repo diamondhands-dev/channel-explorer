@@ -159,7 +159,7 @@ export const Capacity = ({
     </TtlCapacity>
   );
 
-  const viewButton = !capacityDetails && (
+  const viewButton = !isFocusedChannelId && !capacityDetails && (
     <ButtonView
       onClick={() => {
         (async () => {
