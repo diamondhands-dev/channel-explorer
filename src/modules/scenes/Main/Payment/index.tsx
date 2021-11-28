@@ -44,7 +44,9 @@ export const Payment = ({
     if (invoice) {
       setTimeout(() => {
         setInitialLoading(false);
-      }, 500);
+      }, 1000);
+    } else {
+      setInitialLoading(true);
     }
   }, [invoice]);
 
@@ -52,7 +54,7 @@ export const Payment = ({
     <PaymentContainer>
       {invoice && !initialLoading ? (
         <>
-          <Price>
+          <Price className="animate__animated animate__fadeIn">
             <RowPay>
               <Pay>
                 <FormattedMessage id="amount-to-pay" />
@@ -72,7 +74,7 @@ export const Payment = ({
               </ColumnInvoice>
             </RowInvoice>
           </Price>
-          <QR>
+          <QR className="animate__animated animate__fadeIn">
             <QRCode
               size={170}
               value={invoice}
