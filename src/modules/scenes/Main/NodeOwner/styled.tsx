@@ -186,6 +186,7 @@ export const TitleData = styled.div`
   font-size: ${rem(16)};
   font-weight: 500;
   margin-bottom: ${rem(4)};
+  white-space: nowrap;
   @media (min-width: ${rem(media.sm)}) {
     font-size: ${rem(20)};
   }
