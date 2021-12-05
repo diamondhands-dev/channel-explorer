@@ -3,6 +3,7 @@ import Head from 'next/head';
 import React from 'react';
 import { ToastContainer, Slide } from 'react-toastify';
 
+import { appTitle } from '../../modules/env';
 import { GlobalStyle } from '../../modules/styles';
 import { Header } from '../Header';
 
@@ -13,7 +14,7 @@ export const Globals = ({ children }: { children: React.ReactNode }) => {
     <CometThemeProvider theme={'light' as any}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Lightning Channel Explorer</title>
+        <title>{appTitle}</title>
         <link rel="stylesheet" href={COMET_GLOBAL_FONT_HREF} />
 
         <link rel="preload" href="/fonts/Raleway/Raleway.ttf" as="font" crossOrigin="" />

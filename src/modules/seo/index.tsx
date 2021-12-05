@@ -1,9 +1,11 @@
 import { NextSeo } from 'next-seo';
 import React from 'react';
 
+import { appTitle } from '../env';
+
 export const SEO = () => {
-  const content = 'Lightning Channel Explorer';
-  const title = 'Lightning Channel Explorer';
+  const content = appTitle;
+  const title = appTitle;
   const image = 'og.png';
 
   return (

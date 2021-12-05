@@ -15,3 +15,5 @@ export enum PATH {
 export enum LOCAL_STORAGE {
   Unit = 'unit',
 }
+
+export const appTitle = 'Diamond Scanner';

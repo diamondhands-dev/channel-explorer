@@ -19,7 +19,7 @@ export const Header = () => {
   const left = (
     <Left>
       <Title>
-        <FormattedMessage id="header.channel-explorer" />
+        <FormattedMessage id="header.app-title" />
       </Title>
       <ProvideBy>
         <span>by</span>

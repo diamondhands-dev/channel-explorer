@@ -1,5 +1,5 @@
 {
-  "header.channel-explorer": "闪电通道浏览器",
+  "header.app-title": "Diamond Scanner",
   "toast.copied.pk": "複制了公钥!",
   "toast.copied.invoice": "複制了invoice!",
   "node": "节点",

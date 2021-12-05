@@ -1,5 +1,5 @@
 {
-  "header.channel-explorer": "Lightning Channel Explorer",
+  "header.app-title": "Diamond Scanner",
   "toast.copied.pk": "公開鍵をコピーしました!",
   "toast.copied.invoice": "インボイスをコピーしました!",
   "node": "Node",
