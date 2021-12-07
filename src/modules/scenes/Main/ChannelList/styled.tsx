@@ -19,8 +19,9 @@ export const ChannelListContainer = styled.div`
     display: flex;
     justify-content: center;
     cursor: pointer;
+    flex-wrap: wrap;
     padding-left: 0;
-    margin: 22px 0;
+    margin: ${rem(22)} 0;
     border-radius: 4px;
   }
   .pagination > li {
@@ -28,9 +29,11 @@ export const ChannelListContainer = styled.div`
   }
   .pagination > li > a,
   .pagination > li > span {
+    font-family: 'Rajdhani' !important;
+    font-weight: 500;
     position: relative;
     float: left;
-    padding: 6px 12px;
+    padding: ${rem(6)} ${rem(12)};
     line-height: 1.42857143;
     text-decoration: none;
     color: #2c689c;
