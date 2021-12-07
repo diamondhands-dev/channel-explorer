@@ -88,8 +88,8 @@ export const ChannelListContainer = styled.div`
   }
   .pagination-lg > li > a,
   .pagination-lg > li > span {
-    padding: 10px 16px;
-    font-size: 20px;
+    padding: ${rem(10)} ${rem(16)};
+    font-size: ${rem(20)};
     line-height: 1.3333333;
   }
   .pagination-lg > li:first-child > a,
@@ -104,8 +104,8 @@ export const ChannelListContainer = styled.div`
   }
   .pagination-sm > li > a,
   .pagination-sm > li > span {
-    padding: 5px 10px;
-    font-size: 14px;
+    padding: ${rem(5)} ${rem(10)};
+    font-size: ${rem(14)};
     line-height: 1.5;
   }
   .pagination-sm > li:first-child > a,
