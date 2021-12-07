@@ -12,8 +12,9 @@ export const ChannelListContainer = styled.div`
   border-radius: ${rem(10)};
   padding-bottom: ${rem(16)};
   @media (min-width: ${rem(media.sm)}) {
-    padding-bottom: ${rem(28)};
+    padding-bottom: ${rem(18)};
   }
+
   /* Ref: https://github.com/AdeleD/react-paginate/issues/220 */
   .pagination {
     display: flex;
@@ -21,7 +22,8 @@ export const ChannelListContainer = styled.div`
     cursor: pointer;
     flex-wrap: wrap;
     padding-left: 0;
-    margin: ${rem(22)} 0;
+    margin: 0;
+    padding-top: ${rem(18)};
     border-radius: 4px;
   }
   .pagination > li {
