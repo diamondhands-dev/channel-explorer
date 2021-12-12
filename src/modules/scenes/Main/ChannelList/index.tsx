@@ -7,6 +7,7 @@ import { ScaleLoader } from 'react-spinners';
 import { useMatchMedia } from 'comet-ui-kit';
 import { rem } from 'polished';
 import ReactPaginate from 'react-paginate';
+import { scroller } from 'react-scroll';
 
 import triangle from '../../../../../public/icons/triangle-orange.svg';
 import { Search } from '../../../../components/Search';
@@ -82,7 +83,7 @@ export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: strin
   const sm = useMatchMedia({ query: `(min-width: ${rem(media.sm)})` });
 
   return (
-    <ChannelListContainer>
+    <ChannelListContainer id="channel-list">
       <StickyContainer>
         <Sticky>
           {({ style }) => (
@@ -118,7 +119,16 @@ export const ChannelList = ({ unit, nodeOwner }: { unit: TUnit; nodeOwner: strin
               className="pagination"
               breakLabel="..."
               nextLabel="next >"
-              onPageChange={handlePageClick}
+              onPageChange={(event) => {
+                scroller.scrollTo('channel-list', {
+                  duration: 700,
+                  delay: 50,
+                  offset: -10,
+                  smooth: 'linear',
+                  to: 'channel-list',
+                });
+                handlePageClick(event);
+              }}
               pageRangeDisplayed={5}
               pageCount={pageCount}
               previousLabel="< previous"
